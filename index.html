@@ -113,105 +113,6 @@ b{
 
 
 
-/*********************************************************
-SELECT LANGUAGE & FIVE PAY
-**********************************************************/
-
-.select_language_section{
-	text-align: center;
-	margin-top: 20px;
-
-	padding: 25px 10px;
-
-	background-color: #f8de45;
-	background-image: linear-gradient(45deg, #FFED6A, #ECC200);
-}
-
-.five_pay_message{
-	text-transform: uppercase;
-	font-size: 26px;
-}
-
-.five_pay_container{
-	font-size: 38px;
-	font-weight: 700;
-	text-transform: none;
-}
-
-.five_pay_container sup{
-	font-size: 14px;
-}
-
-.dropdown_container{
-	background: #0098db;
-	position: relative;
-	margin: 10px auto 0px;
-	border-radius: 2px;
-	max-width: 400px;
-}
-
-.dropdown_container:after{
-	content: '';
-	position: absolute;
-	right: 14px;
-	top: 23px;
-	z-index: 1;
-	width: 0px;
-	height: 0px;
-	border-top: 7px solid #fff;
-	border-right: 7px solid transparent;
-	border-left: 7px solid transparent;
-}
-
-.dropdown_glow{
-	box-shadow: 0px 0px 30px 8px #FFF;
-	-webkit-animation: glow 1.5s linear 0s infinite alternate;
-	animation: glow 1.5s linear 0s infinite alternate;
-
-}
-
-@-webkit-keyframes glow{
-	from { background-color: #069; }
-	to { background-color: #1af; }
-}
-
-@keyframes glow{
-	from { background-color: #069; }
-	to { background-color: #1af; }
-}
-
-#select_language{
-	box-sizing: border-box;
-	padding: 15px;
-	border: none;
-	background: transparent;
-	font-family: gothambook, sans-serif;
-	font-size: 15px;
-	color: #fff;
-	font-weight: 700;
-	width: 100%;
-	position: relative;
-	z-index: 2;
-}
-
-#select_language option{
-	background: #0098db;
-	color: #fff;
-}
-
-
-@media (min-width: 500px){
-	.five_pay_message,
-	.five_pay_container{
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.five_pay_container{ padding-left: 7px; }
-	.select_language_section{
-		padding: 25px 10px 37px;
-	}
-}
-
 
 
 
@@ -229,16 +130,6 @@ PRODUCT SECTION
 	padding: 20px 10px 40px;
 
 	margin: 30px 0px;
-}
-
-
-.product_title{
-	font-weight: 700;
-	font-size: 20px;
-	text-align: left;
-	margin-left: -15px;
-	line-height: 1.2;
-	margin-bottom: 20px;
 }
 
 #download_info{
@@ -310,16 +201,6 @@ PRODUCT SECTION
 	background-color: #00b8fb;
 }
 
-.disabled_button{
-	background-color: #8b8d8e;
-	cursor: default;
-}
-
-.disabled_button:hover{
-	background-color: #8b8d8e;
-}
-
-
 
 .add_to_cart{
 	text-transform: uppercase;
@@ -327,34 +208,6 @@ PRODUCT SECTION
 
 
 
-/* hide non-default product modules */
-#s3_upsell_module, #l1_module{
-	display: none;
-}
-
-
-.delivery_options{
-	border: 1px solid #e7e5df;
-	color: #333;
-	font-size: 16px;
-	text-transform: uppercase;
-	padding: 10px 0px;
-	background: #f8f6f0;
-
-	margin: 30px 0px 10px -15px;
-
-}
-
-.delivery_options label{
-	display: block;
-	margin: 10px 0px;
-}
-
-.delivery_options input{
-	position: relative;
-	bottom: 1px;
-	margin-right: 6px;
-}
 
 
 
@@ -362,70 +215,6 @@ PRODUCT SECTION
 
 
 
-/*********************************************************
-UPSELL STUFF
-**********************************************************/
-
-.upsell{
-	padding: 20px 0px;
-	background: #edc300;
-
-	background-image: linear-gradient(45deg, #ffed6a, #ecc200);
-
-	border-radius: 10px;
-
-	margin: 27px auto 40px;
-	max-width: 700px;
-
-	box-shadow: 0px 2px 2px -1px #aaa;
-}
-
-.upsell_text{
-	padding: 0px 10px 15px;
-	text-transform: uppercase;
-}
-
-
-.upsell_check_box{
-	border: 3px solid #eee;
-	width: 50px;
-	height: 50px;
-	display: inline-block;
-	vertical-align: middle;
-	position: relative;
-	border-radius: 2px;
-	margin-right: 10px;
-}
-
-.upsell_check{
-	border-left: 5px solid green;
-	border-bottom: 5px solid green;
-
-	width: 35px;
-	height: 17px;
-	position: absolute;
-	left: 5px;
-	top: 8px;
-
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
-
-#upsell input{
-	position: relative;
-	bottom: 2px;
-}
-
-#upsell label{
-	display: block;
-	margin: 2px 0px 10px;
-}
-
-
-.levels{
-	color: #333;
-	font-family: gothambold;
-}
 
 
 
@@ -442,6 +231,8 @@ UPSELL STUFF
 	height: 30px;
 	background: #f8f6f0;
 }
+
+
 
 
 
@@ -637,17 +428,8 @@ Breakpoints
 
 @media (min-width:450px) {
 	
-	.topbar{ text-align: left; }
-	.top_phone{ display: block; }
-
-
-	#select_language{
-		font-size: 20px;
-	}
-
-	.product_title{
-		font-size: 25px;
-	}
+	/*.topbar{ text-align: left; }
+	.top_phone{ display: block; }*/
 
 	.reason_blurb img{
 		vertical-align: middle;
@@ -722,118 +504,149 @@ Breakpoints
 MASTHEAD STYLES
 **********************************************************/
 
-.masthead{
-	background-color: #333;
-	background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/mobile/gracegift.jpg');
-
-	background-size: cover;
-	position: relative;
-
-	padding-top: 43%;
-}
-
-#offerbox{
-	position: absolute;
-	left: 3%;
-	bottom: 3%;
+#masthead{
+	background-color: #2480c9;
+	background-image: linear-gradient(30deg, #82CCEF, #005EB5);
 	color: #fff;
-	text-shadow: 0px 1px 7px #000;
-	line-height: 1;
-}
-
-
-#offerbox sup{
-	font-size: 0.55em;
-	vertical-align: top;
 	position: relative;
-	top: 3px;
-	font-family: gothambook;
+	text-align: center;
 }
 
-#sale-price{
-	font-size: 40px;
-	font-family: gothambold;
-	display: inline-block;
-	vertical-align: middle;
-	padding-right: 0.1em;
+.masthead_content{
+	position: relative;
+	z-index: 5;
 }
 
-#regular-price{
-	display: inline-block;
-	vertical-align: middle;
+.masthead_bg{
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
-#regular-price > span:first-of-type{
-	font-size: 10px;
-	vertical-align: middle;
+
+.masthead_diagonal{
 	display: block;
+	width: 100%;
+	height: 50%;
+	background: transparent;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
 }
 
-#regular-price{
-	position: relative;
+
+
+
+
+
+.fast_fun{
+	padding: 60px 5px 20px;
+	font-size: 35px;
+	font-weight: 100;
+}
+
+.fast_fun > span{
+	font-family: gothambold, sans-serif;
+}
+
+#select_language{
+	color: #e9c503;
+	border-bottom: 2px solid #fff;
 	display: inline-block;
-	vertical-align: middle;
-	font-size: 22px;
-}
-
-#regular-price > span:last-of-type{
-	vertical-align: middle;
+	font-size: 40px;
 	position: relative;
-	margin-left: -.2em;
+	padding-right: 60px;
+
+	font-weight: 700;
 }
 
-#regular-price > span:last-of-type:after{
+#select_language > span{
+	font-size: 70%;
+}
+
+#select_language:after{
 	content: '';
 	position: absolute;
-	width: 110%;
-	height: 2px;
-	background: #e12;
-	left: -5%;
-	top: 50%;
+	right: 0px;
+	top: 23px;
+	z-index: 1;
+	width: 0px;
+	height: 0px;
+	border-top: 16px solid #e9c503;
+	border-right: 14px solid transparent;
+	border-left: 14px solid transparent;
 }
 
-#offertext{
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************
+PRODUCT STYLES
+**********************************************************/
+
+
+.products_container{
+	padding: 70px 5px 80px;
+	color: #333;
+	margin: auto;
+}
+
+.products_container > tr{}
+
+tr,td{
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+}
+
+.product_class{
+	background: #fff;
+	/*display: block;*/
+}
+
+.product_gap{
+	width: 20px;
+}
+
+.product_class_header{
+	background: #333;
+	color: #e9c503;
 	text-transform: uppercase;
-	font-size: 12px;
+
+	font-size: 25px;
+	padding: 5px 0px;
 }
 
-@media (min-width:400px) {
-	/*.masthead{ height: 200px; }*/
-
-	#sale-price{ font-size: 50px; }
+.product_content{
+	display: inline-block;
+	/*width: 45%;*/
+	width: 300px;
+	padding: 20px;
+	max-width: 90%;
+	vertical-align: top;
 }
 
-@media (min-width:600px) {
-	/*.masthead{
-		background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/sbs/gracegift.jpg');
-		height: 240px;
-	}*/
-	.masthead{
-		background-image: url('http://www.rosettastone.com/lp/globals/img/mastheads/sbs/gracegift.jpg');
-		padding-top: 30%;
-	}
-
-	#sale-price{ font-size: 60px; }
-	#regular-price > span:first-of-type{ font-size: 12px; display: inline-block; }
-	#regular-price{ font-size: 28px; }
-	#offertext{ font-size: 17px; }
+.product_title{
+	font-size: 20px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
 }
 
-@media (min-width:900px) {
-	/*.masthead{ height: 300px; }*/
-
-	#sale-price{ font-size: 95px; }
-	#regular-price > span:first-of-type{ font-size: 16px; }
-	#regular-price{ font-size: 40px; }
-	#offertext{ font-size: 20px; }
+.product_subtitle{
+	font-size: 16px;
+	color: #888;
 }
-
-@media (min-width:1200px) {
-	/*.masthead{ height: 370px; }*/
-}
-
-
-
 
 
 
@@ -1087,39 +900,85 @@ CLOCK
 
 
 <!-- *********************************************************
-MASTHEAD AND VIOLATOR
+PRODUCT MASTHEAD
 ********************************************************** -->
 
-<!--##OFFERDIV##--> <!--/##OFFERDIV##-->
+<div id="masthead">
 
-<div id="violator" style="display:none"></div>
+	<div class="masthead_bg">
+		<svg class="masthead_diagonal" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+			<defs>
+				<radialGradient id="masthead_diagonal_gradient" cx="50%" cy="50%" r="95%" fx="50%" fy="50%">
+					<stop offset="0%" style="stop-color:#fe7;"></stop>
+					<stop offset="100%" style="stop-color:#E19C01;"></stop>
+				</radialGradient>
+			</defs>
+			<polygon points="0,10 0,5 10,0 10,10" style="stroke:none; fill:url(#masthead_diagonal_gradient);"></polygon>
+		</svg>
+	</div>
 
-<div class="masthead" id="masthead">
-	<!-- <img src="" id="violator" style="display:none" /> -->
-	<div id="everystory" style=""></div>
+	<div class="masthead_content">
+		<div class="fast_fun">The <span>fast</span>, <span>fun</span> &amp; <span>effective</span> way to learn:</div>
+		<div id="select_language">Spanish <span>(Latin America)</span></div>
 
-	<div id="offerbox">
+		
+		<table class="products_container">
+			<tr>
+				<td class="product_class">
+					<div class="product_class_header">Online</div>
+					<div class="product_content">
+						<div class="product_title">Subscription with app</div>
+						<img src="./assets/tosub.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Get total access on your phone, tablet, and desktop computer for 24 months.
+						</div>
+						<ul>
+							<li><span>Unlimited access for 24 months</span></li>
+							<li><span>Access for 1 person</span></li>
+							<li><span>Learn anywhere on any device including use of our award-winning mobile app</span></li>
+							<li><span>Speech Recognition</span></li>
+						</ul>
+						<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					</div>
+				</td>
+				<td class="product_gap"></td>
+				<td class="product_class">
+					<div class="product_class_header">Desktop</div>
+					<div class="product_content">
+						<div class="product_title">Download</div>
+						<img src="./assets/download.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Start learning immediately with our desktop application</div>
+						<ul>
+							<li><span>Learn at your own pace with our course that never expires</span></li>
+							<li><span>Access for up to 5 family members</span></li>
+							<li><span>Speech Recognition</span></li>
+							<li><span>Try our award winning mobile app for 3 months</span></li>
+							<li><span>Try our native-speaking tutors for 3 months</span></li>
+						</ul>
+						<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					</div>
+					<div class="product_content">
+						<div class="product_title">CD-ROM</div>
+						<img src="./assets/cd.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Learn on your computer
+						</div>
+						<ul>
+							<li><span>Learn at your own pace with our course that never expires</span></li>
+							<li><span>Access for up to 5 family members</span></li>
+							<li><span>Speech Recognition</span></li>
+							<li><span>Try our award winning mobile app for 3 months</span></li>
+							<li><span>Try our native-speaking tutors for 3 months</span></li>
+						</ul>
+						<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					</div>
+				</td>
+			</tr>
+		</table>
 
-		<div id="offertext">
-			Start now for just
-		</div>
-
-		<div id="sale-price">
-			<sup>$</sup><%= strikeThrough[1] %>
-		</div>
-
-		<div id="regular-price">
-			<span>REG</span>
-			<sup>$</sup>
-			<span>
-				<span class="strikethrough"></span>
-				<%= strikeThrough[0] %>
-			</span>
-		</div>
-
-
-	</div><!-- /offerbox -->
-</div> <!-- /masthead -->
+	</div>
+</div>
 
 
 
@@ -1139,49 +998,6 @@ MASTHEAD AND VIOLATOR
 
 
 <div id="content_container" class="content_section">
-
-
-
-	<!-- *****************************************************
-	SELECT LANGUAGE & FIVE PAY
-	****************************************************** -->
-
-	<div class="content_block select_language_section">
-		<div class="five_pay_message">Only 5 easy payments of</div>
-		<div class="five_pay_container">$<span id="five_pay">46</span><sup>/mo.</sup></div>
-
-		<div id="select_language_dropdown_bg" class="dropdown_container">
-			<select id="select_language" autocomplete="off">
-				<option id="select_language_placeholder" value="" disabled selected>Select Your Next Language</option>
-				<option value="esp">Spanish (Latin America)</option>
-				<option class="non-figss" value="eng">English (American)</option>
-				<option value="fra">French</option>
-				<option value="deu">German</option>
-				<option value="ita">Italian</option>
-				<option class="non-figss" value="ara">Arabic</option>
-				<option class="non-figss" value="chi">Chinese (Mandarin)</option>
-				<option class="non-figss" value="ned">Dutch</option>
-				<option class="non-figss" value="ebr">English (British)</option>
-				<option class="non-figss" value="tgl">Filipino (Tagalog)</option>
-				<option class="non-figss" value="grk">Greek</option>
-				<option class="non-figss" value="heb">Hebrew</option>
-				<option class="non-figss" value="hin">Hindi</option>
-				<option class="non-figss" value="gle">Irish</option>
-				<option class="non-figss" value="jpn">Japanese</option>
-				<option class="non-figss" value="kor">Korean</option>
-				<option class="non-figss" value="far">Persian (Farsi)</option>
-				<option class="non-figss" value="pol">Polish</option>
-				<option class="non-figss" value="por">Portuguese (Brazil)</option>
-				<option class="non-figss" value="rus">Russian</option>
-				<option value="esc">Spanish (Spain)</option>
-				<option class="non-figss" value="sve">Swedish</option>
-				<option class="non-figss" value="tur">Turkish</option>
-				<option class="non-figss" value="vie">Vietnamese</option>
-			</select>
-		</div>
-
-	</div>
-
 
 
 
@@ -1217,108 +1033,6 @@ MASTHEAD AND VIOLATOR
 		<a id="add_to_cart_dl_plus_24" href="#" class="standard_button add_to_cart">Add to Cart</a>
 	</div>
 
-
-
-
-
-
-	
-
-	<!-- *****************************************************
-	PRODUCT INFO - S3 UPSELL MODULE
-	****************************************************** -->
-
-	<div id="s3_upsell_module" class="content_block product_section">
-		<img id="download_image" class="product_image" src="./assets/download_product_image.png" alt="">
-		<img id="box_image" style="display:none;" class="product_image" src="./assets/generic_v4_box.png" alt="">
-
-		<ul class="product_bullets">
-			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span><br><span id="upsell_levels" class="levels">Levels 1-3</span> CD or Download</div>
-			<div id="s3_product_copy">
-				<li><span>Learn to share your ideas and opinions, express feelings, and talk everyday life. This includes your interests, profession, current events, and more.</span></li>
-			</div>
-			<div id="s5_product_copy" style="display:none;">
-				<li><span>Develop your command of the language &mdash; read, write, speak, and understand with <b>Levels 1-5</b>, the complete language set.</span></li>
-			</div>
-			<li><span>Unlimited access for you and your family</span></li>
-			<li><span>Available as a CD-ROM or Download</span></li>
-
-			<!-- CD or Download -->
-			<div id="delivery_options" class="delivery_options">
-				<label><input id="box_radio" value="box" type="radio" name="delivery_radio" autocomplete="off">CD-ROM</label>
-				<label><input id="download_radio" value="download" type="radio" name="delivery_radio" autocomplete="off" checked>Instant Download</label>
-			</div>
-		</ul>
-
-		<div>
-			
-			
-
-			<!-- pricing -->
-			<div>
-				<div class="product_strikeprice">
-					<span class="dollar_sign">$</span><span class="main_msrp">499</span>
-				</div>
-				<div class="product_mainprice">
-					<span class="dollar_sign">$</span><span class="main_price">209</span>
-				</div>
-			</div>
-
-
-			<!-- UPSELL -->
-			<div id="upsell" class="upsell">
-				<div class="upsell_text">
-					Get <b>all 5 levels</b> of Rosetta Stone for <b>only $<span id="upsell_amount">XX<span></b> more
-				</div>
-
-				<div>
-					<label>
-						<input id="upsell_yes" value="yes" type="radio" name="upsell_radio" autocomplete="off">
-						Yes, please!
-					</label>
-					<label>
-						<input id="upsell_no" value="no" type="radio" name="upsell_radio" autocomplete="off" checked>
-						No, thanks
-					</label>
-				</div>
-			</div>
-
-			<!-- add to cart -->
-			<a id="add_to_cart_s3_upsell" href="#" class="standard_button add_to_cart">Add to Cart</a>
-
-		</div>
-	</div>
-
-
-
-
-
-	
-
-	<!-- *****************************************************
-	PRODUCT INFO - L1 CD MODULE
-	****************************************************** -->
-
-	<div id="l1_module" class="content_block product_section">
-		<img class="product_image" src="./assets/generic_v4_box.png" alt="">
-
-		<ul class="product_bullets">
-			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span><br><span class="levels">Level 1</span> CD-ROM</div>
-			<li><span>Gain confidence by mastering basic conversational skills. This includes greetings, introductions, simple Q&amp;As, and much more.</span></li>
-			<li><span>Unlimited access for you and your family</span></li>
-			<li><span>Available as a CD-ROM</span></li>
-		</ul>
-
-		<div>
-			<div class="product_strikeprice">
-				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
-			</div>
-			<div class="product_mainprice">
-				<span class="dollar_sign">$</span><span class="main_price">159</span>
-			</div>
-		</div>
-		<a id="add_to_cart_l1" href="#" class="standard_button add_to_cart">Add to Cart</a>
-	</div>
 
 
 
@@ -1522,16 +1236,18 @@ FOOTER
 	<a href="http://www.youtube.com/user/rosettastone"><img class="footer_social_icon" src="./assets/yt.svg"></a>
 	<a href="https://plus.google.com/+RosettaStone"><img class="footer_social_icon" src="./assets/gplus.svg"></a>
 	<div class="copyright">
-		&copy; 1999-<span id="copyyear">2015</span> Rosetta Stone Ltd.
+		&copy; 1999-<span id="copyyear">2016</span> Rosetta Stone Ltd.
 		<br>All Rights Reserved.
 	</div>
 
 	<div class="legalese">
 		<b>OFFER DETAILS</b>
 
-		<p>Free shipping on products shipped within the U.S. only. Offer limited to purchases made directly from Rosetta Stone and cannot be combined with any other offer. Offer valid through <span id="expirationdate">11/19/2015 at 11:59PM EST</span> while quantities last. Online services must be activated within 6 months of purchase or are subject to forfeiture. Mobile apps are not available for Arabic and Persian (Farsi).</p>
+		<p>Free shipping on products shipped within the U.S. only. Offer limited to purchases made directly from Rosetta Stone and cannot be combined with any other offer. Offer valid through <span id="expirationdate">11/19/2016 at 11:59PM EST</span> while quantities last. Online services must be activated within 6 months of purchase or are subject to forfeiture. Mobile apps are not available for Arabic and Persian (Farsi).</p>
 
-		<p>The 5-Pay Easy Payment plan is available for select orders with a billing address in the U.S. only. The first payment of 20% of the total price is charged when the order is placed (plus tax). Four additional payments of 20% will be charged monthly thereafter, with 0% APR and no interest charges from Rosetta Stone.</p>
+		<p>If you elect to pay via an available Easy Payment plan option, the full payment price will be charged in the applicable number of installments. The first payment (plus any applicable shipping and tax on the total purchase price), will be charged to the payment account you selected on the Order Page on the Purchase Date. Thereafter, your account will be charged each month for the remaining number of payments of the plan you selected, with 0% APR and no interest charged from Rosetta Stone.</p>
+
+		<p>*Installment Payment Plan options are made available on select product purchases only and require a valid billing address. Additional restrictions may apply.</p>
 
 		<p>† 3 months online access included with purchase for one user.</p>
 
@@ -1539,6 +1255,12 @@ FOOTER
 		
 		<b>CUSTOMER SUPPORT</b>
 		<p>1.800.ROSETTA</p>
+
+		<p>
+			<a href="http://www.rosettastone.com/terms" target="_blank">Terms and Conditions</a> | 
+			<a href="http://www.rosettastone.com/agreements" target="_blank">Agreements</a> | 
+			<a href="http://www.rosettastone.com/privacy" target="_blank">Privacy Policy</a>
+		</p>
 	</div>
 </div>
 
