@@ -1,0 +1,129 @@
+#set($url = $request.attributes.CURRENT_URL.toLowerCase())
+#set($lang-name = $url.replaceAll(".*learn-([\w-]*).*", "$1"))
+
+
+#set ($velocity_templates_path = "velocity-templates-theme_SERVLET_CONTEXT_/templates")
+
+#parse ("$velocity_templates_path/init.vm")
+
+#set ($TrustPilotUser = "cms@rosettastone.com" )
+#set ($TrustPilotPass = "!Cmsrosettastone" )
+#set ($TrustPilotKeySecret = "wcQ2TIlyoD0GAaIkr3jGxsehKPIQsjVd:Xp84wCHW3FMLrnke" )
+#set ($TrustPilotWebsite = $request.get("locale") )
+
+#set ($TrustPilotLanguage = $catalogMap.get($request.attributes.CURRENT_URL.replace("/", "").replaceAll("\?.*", "")).id.toUpperCase() )
+#set ($TrustPilotLanguageFName = $lang-name)
+
+#if ($TrustPilotWebsite == "en_US")
+#set ($BusinessUnitId = "542de05500006400057ab1c7" )
+<!-- velocity us -->
+#elseif ($TrustPilotWebsite == "en_GB")
+#set ($BusinessUnitId = "4be885d900006400050a2888" )
+<!-- velocity british -->
+#end
+
+#set ($AccessTokenUrl = "https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/accesstoken")
+#set ($ReviewUrlP = "https://api.trustpilot.com/v1/private/business-units/$BusinessUnitId/reviews?perPage=18&language=en&referenceId=$TrustPilotLanguage&orderBy=createdat.desc&token=")
+
+
+<script>
+var tpReviewsft = $MagentoService.readTpReviewsPublicApi("https://api.trustpilot.com/v1/business-units/$BusinessUnitId/reviews?&apikey=wcQ2TIlyoD0GAaIkr3jGxsehKPIQsjVd&language=en&tagValue=ft&orderBy=createdat.desc");
+var trustpilotReviewsJson = $MagentoService.readTpReviews($ReviewUrlP,$TrustPilotUser,$TrustPilotPass,$TrustPilotKeySecret,$AccessTokenUrl);
+var tpReviews = tpReviewsft.reviews.concat(trustpilotReviewsJson.reviews);
+var isUK = /co.uk/.test(window.location.href);
+var tpComm = isUK ? "4be885d900006400050a2888" : "542de05500006400057ab1c7";
+jQuery.ajax({
+  url:'https://api.trustpilot.com/v1/business-units/' + tpComm + '?apikey=wcQ2TIlyoD0GAaIkr3jGxsehKPIQsjVd',
+  success: function(data) { 
+    $('li .wrapper-company-info .star-rating, #to-trustpilot .star-rating').addClass('star-'+ Math.round(data.stars));
+    $('.tp-widget-rating').parent().css('margin-bottom','-11px');
+    isUK ? $('.tp-txt #tp-count, .tp-widget-businessinfo span strong').html(data.numberOfReviews.total) : $('span[itemprop=reviewCount], strong[itemprop=reviewCount]').html(data.numberOfReviews.total);
+    $('.tp-txt #tp-reviews').html(data.stars)
+    $('.tp-widget-rating').show();
+  },
+  error: function() {console.log('tp error'); }
+});
+</script>
+
+<script>
+  $(document).ready(function(){
+    var tpt = tpReviews.length;
+
+    if(tpt > 0){
+      var star_value = 0;
+      var stars = '';
+      var title = '';
+      var rhtml = '';
+      var date = '';
+      var name = '';
+      var text = '';
+
+      for (var i = 0; i < tpt; i++){
+        tpReviews[i].referralEmail = "";
+        date = tpReviews[i].createdAt;
+        date = date.split('-')[1]+'/'+ date.split('-')[2].split('T')[0] +'/'+ date.split('-')[0];
+        name = tpReviews[i].consumer.displayName;
+        title = tpReviews[i].title;
+        stars = tpReviews[i].stars;
+        text = tpReviews[i].text;
+        star_value += stars;
+        
+        rhtml += '<div class="tp-widget-review ng-scope" data-ng-repeat="review in reviewsResult.reviews"><div class="user-info"><span class="name ng-binding">' 
+          + name + '</span></div><div class="tp-widget-stars clearfix"><div class="star-rating star-' 
+          + stars + ' clearfix"><div class="star-1"><img src="http://www.rosettastone.com/lp/catalog2015/star2.png" width="18" height="18"></div><div class="star-2"><img src="http://www.rosettastone.com/lp/catalog2015/star2.png" width="18" height="18"></div><div class="star-3"><img src="http://www.rosettastone.com/lp/catalog2015/star2.png" width="18" height="18"></div><div class="star-4"><img src="http://www.rosettastone.com/lp/catalog2015/star2.png" width="18" height="18"></div><div class="star-5"><img src="http://www.rosettastone.com/lp/catalog2015/star2.png" width="18" height="18"></div></div><div class="date ng-binding">' 
+          + date + '</div></div><div class="header ng-binding">' 
+          + title + '</div><div class="text" data-ng-class="{showall: review.showAll || !review.textTooLong}"><span data-ng-bind-html="getReviewText($index)" class="ng-binding">'
+          + text + '</span></div></div>';
+      }
+      
+      $('#wrapper-reviews').prepend(rhtml);
+      #if ($TrustPilotLanguageFName != "") 
+        $(".lang-title").html(" $TrustPilotLanguageFName");
+      #end
+
+      if(/\.co.uk/.test(window.location.host)){
+        $('#hidden-tp-website-link').attr('href','https://www.trustpilot.com/review/rosettastone.co.uk')
+      }
+
+      $(".tp-widget-review").find(".text").each(function(){
+        if ($(this).find("span").text().length>250 && $(this).parent().find(".readmore").length<=0){
+          $(this).parent().append('<div class="readmore"><span>Read More</span></div>');
+          $(this).parent().find(".readmore").click(function() { 
+            $(this).parent().find(".text").css("height","100%");
+            $(this).hide();
+          })
+        }
+      });
+      
+      function tpClicking(){
+        $('.wrapper-company-info .tp-widget-stars, .tp-reviews-open').on('click',function tpOpen(){
+          $('#popup-mask').css('display','block');
+          $('body, html').addClass('noScroll');
+        });
+        
+        $('#popup-mask').on('click',function tpClose(e){
+          if($('#popup-mask').is(e.target) === true && $("#popup-mask").has(e.target).length === 0 || $('#tp-popup a.close').is(e.target) === true){ 
+            $('#popup-mask').css('display','none');
+            $('body, html').removeClass('noScroll');
+          }
+        });
+
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+            $('#popup-mask').css('display','none');
+            $('body, html').removeClass('noScroll');
+            }
+        });
+
+        $('.right-header, #tp-website-link').on('click',function tpToWeb(){
+          $('#hidden-tp-website-link')[0].click();
+        });
+      }
+
+      tpClicking();
+
+    }
+    if((/(LA)/).test($('.lang-title').text())){ $('.lang-title').text(" SPANISH")}
+  });
+
+</script>

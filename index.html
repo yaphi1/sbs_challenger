@@ -35,10 +35,28 @@ body{
 	font-family: gothambook, sans-serif;
 	margin: 0px;
 	font-size: 20px;
-	background: #f8f6f0;
+	background: #fff;
 	color: #554;
 	line-height: 1.4;
 }
+
+
+h2{
+	width: 70%;
+	color: #554;
+	font-size: 40px;
+	font-weight: 100;
+	padding: 0px;
+	margin: 0px auto;
+}
+
+h3{
+	font-size: 22px;
+	font-weight: 100;
+	padding: 0px 0px 40px;
+	margin: 0px auto;
+}
+
 
 a{
 	color: #0098db;
@@ -91,9 +109,13 @@ b{
 
 
 
-.content_section{
-	padding: 10px;
-	max-width: 800px;
+.section{
+	padding: 80px 10px;
+	text-align: center;
+}
+
+.section_content{
+	max-width: 1100px;
 	margin: auto;
 }
 
@@ -122,30 +144,6 @@ b{
 /*********************************************************
 PRODUCT SECTION
 **********************************************************/
-
-.product_section{
-	background: #fff;
-	border: 1px solid #e8e6e0;
-	text-align: center;
-	padding: 20px 10px 40px;
-
-	margin: 30px 0px;
-}
-
-#download_info{
-	display: none;
-}
-
-.product_image{
-	width: 80%;
-	max-width: 225px;
-	vertical-align: middle;
-}
-
-.product_bullets{
-	vertical-align: middle;
-	max-width: 350px;
-}
 
 .dollar_sign{
 	font-size: 0.55em;
@@ -223,68 +221,81 @@ PRODUCT SECTION
 
 
 
-
-
-.diagonal_divider{
-	display: block;
-	width: 100%;
-	height: 30px;
-	background: #f8f6f0;
-}
-
-
-
-
-
-
-
-
 /*********************************************************
-REASONS TO BUY
+REVIEWS
 **********************************************************/
 
-.reason_section{
-	background: #edeadf;
-	text-align: center;
+.reviews_section{
+	background: #F8F6F0;
 }
 
-.reason_header{
-	width: 70%;
-	margin: auto;
-	padding: 30px 0px 20px;
-	color: #554;
-	font-size: 25px;
+#review_container{
+	position: relative;
+	font-size: 0px;
 }
 
-.reason_blurb{
-	text-align: left;
-	padding: 10px;
-	border-radius: 5px;
-	border: 1px solid #e8e6e0;
-	background: #fff;
-	font-size: 15px;
-	margin-bottom: 10px;
+.hidden_reviews{
+	overflow: hidden;
+	max-height: 500px;
+	border-bottom: 1px solid #eee;
 }
 
-.reason_blurb img{
+.hidden_reviews:after{
+	content: '';
+	position: absolute;
+	left: 0px;
+	bottom: -20px;
 	width: 100%;
-	display: inline-block;
+	height: 40px;
+	background-image: radial-gradient(50% 30%, rgba(33,33,33,0.15), rgba(33,33,33,0));
 }
 
-.reason_text{
-	display: inline-block;
-}
-
-.reason_title{
-	color: #0098db;
-	font-weight: 700;
-	padding: 10px 0px;
+.review_box{
+	background-color: #fff;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+	text-align: left;
+	border-radius: 3px;
+	padding: 15px;
+	margin-bottom: 4%;
 	font-size: 20px;
 }
 
-.get_started_button{
+.review_name{
+	font-family: gothambold, sans-serif;
+}
+
+.stars{
+	color: #F8D62D;
+}
+
+.more_reviews_button{
 	display: inline-block;
-	margin: 20px 0px;
+	margin: 20px 0px 0px;
+}
+
+
+.review_column, .review_big_column {
+	vertical-align: top;
+}
+
+@media (min-width: 700px){
+	.review_big_column{
+		display: inline-block;
+		width: 48%;
+		margin: 0px 1%;
+	}
+}
+
+@media (min-width: 1150px){
+	.review_big_column{
+		width: 50%;
+		margin: 0px;
+	}
+	.review_column{
+		display: inline-block;
+		width: 46%;
+		margin: 0px 2%;
+	}
 }
 
 
@@ -296,88 +307,18 @@ REASONS TO BUY
 
 
 /*********************************************************
-SOCIAL PROOF
+BOTTOM PRICING SECTION
 **********************************************************/
 
-.social_proof{
-	text-align: center;
-}
 
-#press_mentions{
-	position: relative;
-	padding: 40px 0px 30px;
-}
-
-.mention{
-	position: absolute;
-	top: 40px;
-	left: 0px;
-	width: 100%;
-	text-align: center;
-	font-size: 18px;
-	opacity: 0;
-
-	-webkit-transition: opacity 0.4s linear;
-	transition: opacity 0.4s linear;
-}
-
-.current_mention{
-	opacity: 1;
-}
-
-.quote{
-	margin: 0px;
-	padding-bottom: 15px;
-}
-
-#mention_slide_nav{
-	text-align: center;
-	padding-top: 10px;
-}
-
-.mention_circle{
-	display: inline-block;
-	margin: 0px 3px;
-	background-color: #ccc;
-	border-radius: 50%;
-	width: 12px;
-	height: 12px;
-	cursor: pointer;
-
-	-webkit-transition: background-color 0.4s linear;
-	transition: background-color 0.4s linear;
-}
-
-.current_mention_circle{
-	background-color: #fdba3d;
+.bottom_pricing_section{
+	background: #EDC300;
+	box-shadow: 0px 0px 50px 10px #E79802 inset;
 }
 
 
 
 
-.how_effective{
-	padding-top: 30px;
-	border-top: 1px solid #ccc;
-}
-
-.trusted_by{
-	font-size: 16px;
-	padding-bottom: 20px;
-}
-
-
-.social_proof_blurb{
-	border: 1px solid #ccc;
-	border-radius: 1px;
-	padding: 20px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	font-size: 16px;
-}
-
-.social_proof_number{
-	font-size: 23px;
-}
 
 
 
@@ -392,7 +333,6 @@ FOOTER
 **********************************************************/
 
 .footer{
-	border-top: 4px solid #fdba3d;
 	background: #363534;
 	color: #ccc;
 	padding: 40px 20px;
@@ -428,23 +368,23 @@ Breakpoints
 
 @media (min-width:450px) {
 	
-	/*.topbar{ text-align: left; }
-	.top_phone{ display: block; }*/
+	.topbar{ text-align: left; }
+	.top_phone{ display: block; }
 
-	.reason_blurb img{
+	.reviews_blurb img{
 		vertical-align: middle;
 		width: 20%;
 		display: inline-block;
 	}
 
-	.reason_text{
+	.reviews_text{
 		vertical-align: middle;
 		display: inline-block;
 		width: 75%;
 		padding-left: 2%;
 	}
 
-	.reason_title{
+	.reviews_title{
 		padding-top: 0px;
 	}
 
@@ -996,46 +936,21 @@ PRODUCT MASTHEAD
 
 
 
-
-<div id="content_container" class="content_section">
-
-
-
+<!-- *********************************************************
+HOW IT WORKS
+********************************************************** -->
 
 
+<div class="section">
+	<div class="section_content">
 
-	
+		<h2>How does it work?</h2>
+		<h3>Find out everything you need to know about Rosetta Stone in 2 minutes.</h3>
 
-	<!-- *****************************************************
-	* DEFAULT *  PRODUCT INFO - DOWNLOAD + 24-MONTH MOBILE ACCESS
-	****************************************************** -->
-
-	<div id="download_plus_24_module" class="content_block product_section">
-		<img class="product_image" src="./assets/download_product_image.png" alt="">
-
-		<ul class="product_bullets">
-			<div class="product_title">Rosetta Stone&reg; <span class="language_name"></span> Download</div>
-			<li><span>Rosetta Stone&reg; Download for your desktop computer</span></li>
-			<li><span>Learn with our award-winning app for 24 months</span></li>
-			<li><span>Perfect pronunciation with our speech recognition technology</span></li>
-			<li><span>Practice what you've learned with our online games and social community</span></li>
-		</ul>
-
-		<div>
-			<div class="product_strikeprice">
-				<span class="dollar_sign">$</span><span class="main_msrp">499</span>
-			</div>
-			<div class="product_mainprice">
-				<span class="dollar_sign">$</span><span class="main_price">229</span>
-			</div>
+		<div style="width:100%; max-width:900px; height: 500px; background:#333; margin:auto;">
 		</div>
 
-		<a id="add_to_cart_dl_plus_24" href="#" class="standard_button add_to_cart">Add to Cart</a>
 	</div>
-
-
-
-
 </div>
 
 
@@ -1049,16 +964,6 @@ PRODUCT MASTHEAD
 
 
 
-<!-- *********************************************************
-SVG DIAGONAL DIVIDER 1
-********************************************************** -->
-
-<svg class="diagonal_divider" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-	<polygon points="0,10 10,0 10,10" style="stroke:none; fill:#edeadf;"></polygon>
-</svg>
-
-
-
 
 
 
@@ -1069,43 +974,139 @@ SVG DIAGONAL DIVIDER 1
 
 
 <!-- *********************************************************
-REASONS TO BUY
+REVIEWS
 ********************************************************** -->
 
-<div class="reason_section">
-	<div class="reason_header">
-		Three reasons to start today:
-	</div>
+<div class="section reviews_section">
 
-	<div class="content_section">
+	<div class="section_content">
+
+		<h2>Rosetta Stone Reviews</h2>
+		<h3>Our product reviews and ratings help you connect with real customers.</h3>
 
 
-		<div class="reason_blurb">
-			<img src="./assets/features-1.jpg" alt="">
-			<div class="reason_text">
-				<div class="reason_title">1. 20 years of successful outcomes.</div>
-				Millions of people around the world have succeeded with our award-winning method. So can you.
+
+		<div id="review_container" class="hidden_reviews">
+
+			
+			<!-- left big column -->
+			<div class="review_big_column">
+
+			
+				<!-- review column 1 -->
+				<div class="review_column">
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+				</div>
+
+
+
+				<!-- review column 2 -->
+				<div class="review_column">
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here and more words etc etc
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+				</div>
+
+
 			</div>
+
+
+
+
+			<!-- right big column -->
+			<div class="review_big_column">
+
+				<!-- review column 3 -->
+				<div class="review_column">
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Short review
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+				</div>
+
+
+				<!-- review column 4 -->
+				<div class="review_column">
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+
+					<div class="review_box">
+						<div class="review_name">Reviewer</div>
+						<div class="stars">★★★★★</div>
+						<p>
+							Review text goes here blerp blerp etc blah blerp werdz go here
+						</p>
+					</div>
+				</div>
+
+
+			</div>
+
+
 		</div>
 
-		<div class="reason_blurb">
-			<img src="./assets/features-2.jpg" alt="">
-			<div class="reason_text">
-				<div class="reason_title">2. Flexible enough to keep up with you.</div>
-				Get started on desktop or laptop. Keep learning on your tablet or smartphone.  Whether you have a little time or a lot, our multi-device language-learning platform keeps pace with your conversation goals.
-			</div>
-		</div>
 
-		<div class="reason_blurb">
-			<img src="./assets/features-3.jpg" alt="">
-			<div class="reason_text">
-				<div class="reason_title">3. You'll start speaking immediately.</div>
-				You've always wanted to learn a new language.  Rosetta Stone&reg; Language Learning gets you speaking from lesson one.  <b>So why not get started now?</b>
-			</div>
-		</div>
-
-
-		<a id="get_started_button" class="standard_button get_started_button" href="#">Get Started</a>
+		<br>
+		<a id="more_reviews_button" class="standard_button get_started_button" href="#">More Reviews</a>
 
 	</div>
 </div>
@@ -1119,101 +1120,44 @@ REASONS TO BUY
 
 
 
-<!-- *********************************************************
-SVG DIAGONAL DIVIDER 2
-********************************************************** -->
-
-<svg class="diagonal_divider" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-	<polygon points="0,10 10,0 0,0" style="stroke:none; fill:#edeadf;"></polygon>
-</svg>
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 <!-- *********************************************************
-SOCIAL PROOF
+BOTTOM PRICING TABLE
 ********************************************************** -->
 
-<div class="content_section social_proof">
-	
-	<div id="press_mentions">
-
-		<!-- CNN -->
-		<div class="mention current_mention">
-			<blockquote class="quote">
-				&ldquo;The gold standard of computer-based language learning.&rdquo;
-			</blockquote>
-			<img src="./assets/media/cnn.svg" alt="cnn" style="width:80px;">
-		</div>
-
-		<!-- TechCrunch -->
-		<div class="mention">
-			<blockquote class="quote">
-				&ldquo;I love Rosetta Stone's software, and I think the approach to learning languages works.&rdquo;
-			</blockquote>
-			<img src="./assets/media/tclogo.png" alt="techcrunch" style="width:80px;">
-		</div>
-
-		<!-- PC Magazine -->
-		<!-- this static position allows us to have fluid height inline behavior in spite of absolutely positioned elements (without any js or css hacks/complexity) -->
-		<div class="mention" style="position:static;">
-			<blockquote class="quote">
-				&ldquo;Anyone trying Rosetta Stone for the first time will enjoy diving right in.&rdquo;
-			</blockquote>
-			<img src="./assets/media/pcmag.png" alt="pc magazine" style="width:40px;">
-		</div>
-
-		<!-- Wall Street Journal -->
-		<div class="mention">
-			<blockquote class="quote">
-				&ldquo;Rosetta Stone TOTALe may be the next best thing to living in a country.&rdquo;
-			</blockquote>
-			<img src="./assets/media/wsj.png" alt="wall street journal" style="width:80px;">
-		</div>
 
 
-		<div id="mention_slide_nav">
-			<div class="mention_circle current_mention_circle"></div>
-			<div class="mention_circle"></div>
-			<div class="mention_circle"></div>
-			<div class="mention_circle"></div>
-		</div>
+<div class="section bottom_pricing_section">
+	<div class="section_content">
 
-	</div>
+		<h2>Start Learning With Rosetta Stone</h2>
+		<h3>Get speaking with the most powerful and intuitive language program on the planet.</h3>
 
+		Pricing table goes here
 
-	<div class="how_effective">See how effective we are.</div>
-	<div class="trusted_by">Used and trusted by:</div>
-
-	<div class="social_proof_blurb">
-		<img src="./assets/corporations.svg">
-		<div class="social_proof_number">8,000+</div>
-		Corporations
-	</div>
-
-	<div class="social_proof_blurb">
-		<img src="./assets/corporations.svg">
-		<div class="social_proof_number">9,000+</div>
-		Public &amp; Nonprofit Agencies
-	</div>
-
-	<div class="social_proof_blurb">
-		<img src="./assets/corporations.svg">
-		<div class="social_proof_number">20,000+</div>
-		Educational Institutions
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1360,6 +1304,25 @@ function getParameter(param){
 
 
 
+
+
+
+
+
+
+
+
+
+/************************************************************
+REVIEWS
+*************************************************************/
+
+
+document.getElementById('more_reviews_button').onclick = function(){
+	document.getElementById('review_container').className = '';
+	this.style.display = 'none';
+	return false;
+};
 
 
 

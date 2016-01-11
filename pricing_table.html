@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pricing Table</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+
+	background: #eee;
+}
+
+
+
+
+.products_container{
+	padding: 70px 5px 80px;
+	color: #333;
+	margin: auto;
+	text-align: center;
+}
+
+.products_container > tr{}
+
+tr,td{
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+}
+
+.product_class{
+	background: #fff;
+	/*display: block;*/
+}
+
+.product_gap{
+	width: 20px;
+}
+
+.product_class_header{
+	background: #333;
+	color: #e9c503;
+	text-transform: uppercase;
+
+	font-size: 25px;
+	padding: 5px 0px;
+}
+
+.product_content{
+	display: inline-block;
+	/*width: 45%;*/
+	width: 300px;
+	padding: 20px;
+	max-width: 90%;
+	vertical-align: top;
+}
+
+.product_title{
+	font-size: 20px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.product_subtitle{
+	font-size: 16px;
+	color: #888;
+}
+
+
+
+
+
+.standard_button{
+	border: none;
+	background-color: #0098db;
+	color: #fff;
+	border-radius: 3px;
+	padding: 15px 35px;
+	font-family: gothambook, sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+
+	-webkit-transition: background-color 0.4s linear;
+	transition: background-color 0.4s linear;
+}
+
+.standard_button:hover{
+	background-color: #00b8fb;
+}
+
+
+.add_to_cart{
+	text-transform: uppercase;
+}
+
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="products_container">
+	<tr>
+		<td class="product_class">
+			<div class="product_class_header">Online</div>
+			<div class="product_content">
+				<div class="product_title">Subscription with app</div>
+				<img src="./assets/tosub.svg" alt="" style="height:40px;">
+				<div class="product_subtitle">
+					Get total access on your phone, tablet, and desktop computer for 24 months.
+				</div>
+				<ul>
+					<li><span>Unlimited access for 24 months</span></li>
+					<li><span>Access for 1 person</span></li>
+					<li><span>Learn anywhere on any device including use of our award-winning mobile app</span></li>
+					<li><span>Speech Recognition</span></li>
+				</ul>
+				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+			</div>
+		</td>
+		<td class="product_gap"></td>
+		<td class="product_class">
+			<div class="product_class_header">Desktop</div>
+			<div class="product_content">
+				<div class="product_title">Download</div>
+				<img src="./assets/download.svg" alt="" style="height:40px;">
+				<div class="product_subtitle">
+					Start learning immediately with our desktop application</div>
+				<ul>
+					<li><span>Learn at your own pace with our course that never expires</span></li>
+					<li><span>Access for up to 5 family members</span></li>
+					<li><span>Speech Recognition</span></li>
+					<li><span>Try our award winning mobile app for 3 months</span></li>
+					<li><span>Try our native-speaking tutors for 3 months</span></li>
+				</ul>
+				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+			</div>
+			<div class="product_content">
+				<div class="product_title">CD-ROM</div>
+				<img src="./assets/cd.svg" alt="" style="height:40px;">
+				<div class="product_subtitle">
+					Learn on your computer
+				</div>
+				<ul>
+					<li><span>Learn at your own pace with our course that never expires</span></li>
+					<li><span>Access for up to 5 family members</span></li>
+					<li><span>Speech Recognition</span></li>
+					<li><span>Try our award winning mobile app for 3 months</span></li>
+					<li><span>Try our native-speaking tutors for 3 months</span></li>
+				</ul>
+				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+			</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
