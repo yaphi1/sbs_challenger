@@ -8,7 +8,7 @@
 <style type="text/css">
 
 html {
-    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+	-webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
 }
 
 button, select{
@@ -141,6 +141,119 @@ b{
 
 
 
+
+
+/*********************************************************
+LANGUAGE OVERLAY
+**********************************************************/
+
+#language_overlay{
+	position: fixed;
+	z-index: 1000;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(33,33,33,0.9);
+	color: #fff;
+	display: none;
+	text-align: center;
+	overflow: scroll;
+}
+
+#language_overlay div{
+	vertical-align: top;
+}
+
+#close_language_overlay{
+	position: absolute;
+	right: 5%;
+	top: 20px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.language_overlay_title{
+	font-size: 25px;
+	padding: 60px 0px 0px;
+}
+
+.language_overlay_languages{
+	display: inline-block;
+	padding: 30px 0px;
+	font-size: 0px;
+}
+
+.language_overlay_big_col{
+	/*display: inline-block;*/
+}
+
+.language_overlay_col{
+	text-align: left;
+	font-size: 20px;
+	/*display: inline-block;*/
+}
+
+#language_overlay a{
+	display: block;
+	padding: 5px 0px;
+	color: #eee;
+	text-decoration: none;
+}
+
+#language_overlay a:hover{
+	text-decoration: underline;
+}
+
+#language_overlay a span{
+	font-size: 70%;
+}
+
+@media (min-width:600px){
+	.language_overlay_big_col{
+		display: inline-block;
+		padding: 0px 40px;
+	}
+	.language_overlay_title{
+		font-size: 35px;
+	}
+}
+
+
+@media (min-width:1120px){
+	.language_overlay_big_col{
+		padding: 0px;
+	}
+
+	.language_overlay_col{
+		display: inline-block;
+		padding: 0px 40px;
+	}
+
+	#language_overlay a{
+		padding: 10px 0px;
+	}
+
+	.language_overlay_title{
+		font-size: 45px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*********************************************************
 PRODUCT SECTION
 **********************************************************/
@@ -235,6 +348,7 @@ REVIEWS
 }
 
 .review_box{
+	position: relative;
 	background-color: #fff;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 	text-align: left;
@@ -243,6 +357,7 @@ REVIEWS
 	margin-bottom: 4%;
 	font-size: 20px;
 	font-size: 14px;
+	overflow: hidden;
 }
 
 .special_review{
@@ -252,7 +367,7 @@ REVIEWS
 }
 
 .review_pc_mag{
-	background: red;
+	background: #b00;
 }
 .review_cnn{
 	background: #fff;
@@ -275,12 +390,57 @@ REVIEWS
 
 .stars{
 	color: #F8D62D;
+	font-size: 20px;
 }
 
 .more_reviews_button{
 	display: inline-block;
 	margin: 20px 0px 0px;
 }
+
+.review_play_button{
+	width: 60px;
+	height: 60px;
+	margin: 60px 0px;
+}
+
+.review_play_button circle{
+	stroke: #fff;
+}
+.review_play_button polygon{
+	fill: #fff;
+	stroke: #fff;
+}
+
+.video_review *{
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.video_review:hover .review_play_button circle{
+	stroke: gold;
+}
+.video_review:hover .review_play_button polygon{
+	fill: gold;
+	stroke: #fff;
+}
+
+
+.review_still{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 1;
+}
+
+.review_foreground{
+	position: relative;
+	z-index: 2;
+}
+
 
 
 .review_column, .review_big_column {
@@ -488,14 +648,24 @@ MASTHEAD STYLES
 }
 
 #select_language{
-	color: #e9c503;
-	border-bottom: 2px solid #fff;
+	cursor: pointer;
+	color: #fff;
+	background: #333;
+	background-image: linear-gradient(#444,#333);
+	box-shadow: 0px 2px 8px -1px rgba(33,33,33,0.7);
+	border-radius: 5px;
 	display: inline-block;
-	font-size: 50px;
+	font-size: 30px;
 	position: relative;
-	padding-right: 60px;
+	padding: 10px 20px;
+	padding-right: 80px;
 
 	font-weight: 700;
+}
+
+#select_language:hover{
+	background: #383838;
+	background-image: linear-gradient(#484848,#383838);
 }
 
 #select_language > span{
@@ -505,14 +675,14 @@ MASTHEAD STYLES
 #select_language:after{
 	content: '';
 	position: absolute;
-	right: 0px;
-	top: 23px;
+	right: 20px;
+	top: 26px;
 	z-index: 1;
 	width: 0px;
 	height: 0px;
-	border-top: 16px solid #e9c503;
-	border-right: 14px solid transparent;
-	border-left: 14px solid transparent;
+	border-top: 12px solid #e9c503;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
 }
 
 
@@ -836,6 +1006,31 @@ CLOCK
 
 
 
+
+<!--*********************************************************
+SVG DEFINITIONS
+**********************************************************-->
+
+
+<svg style="display:none;">
+
+	<!-- play button -->
+	<symbol id="play_button_svg" viewBox="-1 -1 12 12" xmlns="http://www.w3.org/2000/svg">
+		<circle cx="5" cy="5" r="4.75" style="stroke-width:1.0; fill:transparent;"></circle>
+		<polygon points="4.2,3.5 6.8,5 4.2,6.5" style="stroke-width:0.5; stroke-linejoin:round;"></polygon>
+	</symbol>
+
+</svg>
+
+
+
+
+
+
+
+
+
+
 <!-- *********************************************************
 PRODUCT MASTHEAD
 ********************************************************** -->
@@ -917,6 +1112,79 @@ PRODUCT MASTHEAD
 
 
 
+<!-- *********************************************************
+LANGUAGE OVERLAY
+********************************************************** -->
+
+<div id="language_overlay">
+	<div id="close_language_overlay">X</div>
+
+	<div class="language_overlay_title">Choose a Language</div>
+
+	<div class="language_overlay_languages">
+		
+		<!-- big column 1 -->
+		<div class="language_overlay_big_col">
+			<div class="language_overlay_col">
+				<a href="/learn-arabic/" id="ara">Arabic</a>
+				<a href="/learn-chinese/" id="chi">Chinese <span>(Mandarin)</span></a>
+				<!-- smaller market --><a href="/learn-dari/" id="dar">Dari</a>
+				<a href="/learn-dutch/" id="ned">Dutch</a>
+				<a href="/learn-english/" id="eng">English <span>(American)</span></a>
+				<a href="/learn-english-british/" id="ebr">English <span>(British)</span></a>
+				<a href="/learn-tagalog/" id="tgl">Filipino <span>(Tagalog)</span></a>
+				<a href="/learn-french/" id="fra">French</a>
+			</div>
+
+			<div class="language_overlay_col">
+				<a href="/learn-german/" id="deu">German</a>
+				<a href="/learn-greek/" id="grk">Greek</a>
+				<a href="/learn-hebrew/" id="heb">Hebrew</a>
+				<a href="/learn-hindi/" id="hin">Hindi</a>
+				<!-- smaller market --><a href="/learn-indonesian/" id="ind">Indonesian</a>
+				<a href="/learn-irish/" id="gle">Irish</a>
+				<a href="/learn-italian/" id="ita">Italian</a>
+				<a href="/learn-japanese/" id="jpn">Japanese</a>
+			</div>
+		</div>
+
+		
+		<!-- big column 2 -->
+		<div class="language_overlay_big_col">
+			<div class="language_overlay_col">
+				<a href="/learn-korean/" id="kor">Korean</a>
+				<!-- smaller market --><a href="/learn-latin/" id="lat">Latin</a>
+				<!-- smaller market --><a href="/learn-pashto/" id="pas">Pashto</a>
+				<a href="/learn-farsi/" id="far">Persian <span>(Farsi)</span></a>
+				<a href="/learn-polish/" id="pol">Polish</a>
+				<a href="/learn-portuguese/" id="por">Portuguese <span>(Brazil)</span></a>
+				<a href="/learn-russian/" id="rus">Russian</a>
+				<a href="/learn-spanish/" id="esp">Spanish <span>(Latin America)</span></a>
+			</div>
+
+			<div class="language_overlay_col">
+				<a href="/learn-spanish-spain/" id="esc">Spanish <span>(Spain)</span></a>
+				<!-- smaller market --><a href="/learn-swahili/" id="kis">Swahili</a>
+				<a href="/learn-swedish/" id="sve">Swedish</a>
+				<a href="/learn-turkish/" id="tur">Turkish</a>
+				<!-- smaller market --><a href="/learn-urdu/" id="urd">Urdu</a>
+				<a href="/learn-vietnamese/" id="vie">Vietnamese</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -932,7 +1200,8 @@ HOW IT WORKS
 		<h2>How does it work?</h2>
 		<h3>Find out everything you need to know about Rosetta Stone in 2 minutes.</h3>
 
-		<div style="width:100%; max-width:900px; height: 500px; background:#333; margin:auto;">
+		<div style="max-width:889px; margin:auto;">
+			<img src="./assets/video_still.jpg" style="width:100%">
 		</div>
 
 	</div>
@@ -995,22 +1264,26 @@ REVIEWS
 					</div>
 
 
-					<div class="review_box special_review">
-						<div class="review_title">
-							[PLAY BUTTON]
+					<div class="review_box special_review video_review">
+						<img src="./assets/delaine_still.jpg" class="review_still">
+
+						<div class="review_foreground">
+							<svg class="review_play_button">
+								<use xlink:href="#play_button_svg"></use>
+							</svg>
+							<div class="review_title">
+								DELAINE’S STORY
+							</div>
+							<p>
+								"When I got here, I realized I needed to speak the language to help out in any sort of way."
+							</p>
 						</div>
-						<div class="review_title">
-							DELAINE’S STORY
-						</div>
-						<p>
-							"When I got here, I realized I needed to speak the language to help out in any sort of way."
-						</p>
 					</div>
 
 
 					<div class="review_box special_review review_pc_mag">
 						<div class="review_title">
-							[PC Mag Logo]
+							<img src="./assets/pcmag.png">
 						</div>
 						<p>
 							"Anyone trying Rosetta Stone for the first time will enjoy diving right in."
@@ -1113,7 +1386,7 @@ REVIEWS
 
 					<div class="review_box special_review review_cnn">
 						<div class="review_title">
-							[CNN LOGO]
+							<img src="./assets/cnn.png">
 						</div>
 						<p>
 							"The gold standard of computer-based language learning."
@@ -1143,16 +1416,20 @@ REVIEWS
 				<!-- review column 4 -->
 				<div class="review_column">
 
-					<div class="review_box special_review">
-						<div class="review_title">
-							[PLAY BUTTON]
+					<div class="review_box special_review video_review">
+						<img src="./assets/grace_still.jpg" class="review_still">
+
+						<div class="review_foreground">
+							<svg class="review_play_button">
+								<use xlink:href="#play_button_svg"></use>
+							</svg>
+							<div class="review_title">
+								GRACE’S STORY
+							</div>
+							<p>
+								"I'd love to teach French so it would be important to read French literature in its original language."
+							</p>
 						</div>
-						<div class="review_title">
-							GRACE’S STORY
-						</div>
-						<p>
-							"I'd love to teach French so it would be important to read French literature in its original language."
-						</p>
 					</div>
 
 
@@ -1172,7 +1449,7 @@ REVIEWS
 
 					<div class="review_box special_review">
 						<div class="review_title">
-							[WSJ LOGO]
+							<img src="./assets/wsj.png">
 						</div>
 
 						<p>
@@ -1796,11 +2073,17 @@ function ensure_correct_url(url){
 SMOOTH SCROLL
 ***********************************************************/
 function smoothScrollTo(scrolltargetid){
-    $('html,body').animate({scrollTop : document.getElementById(scrolltargetid).getBoundingClientRect().top + window.scrollY}, 'fast');
-    return false;
+	$('html,body').animate({scrollTop : document.getElementById(scrolltargetid).getBoundingClientRect().top + window.scrollY}, 'fast');
+	return false;
 }
 
 
+document.getElementById('select_language').onclick = function(){
+	$('#language_overlay').fadeIn();
+};
+document.getElementById('close_language_overlay').onclick = function(){
+	$('#language_overlay').fadeOut();
+};
 
 
 </script>
