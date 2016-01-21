@@ -147,7 +147,7 @@ b{
 LANGUAGE OVERLAY
 **********************************************************/
 
-#language_overlay{
+#language_overlay, #video_overlay{
 	position: fixed;
 	z-index: 1000;
 	left: 0px;
@@ -244,6 +244,27 @@ LANGUAGE OVERLAY
 
 
 
+/*********************************************************
+VIDEO OVERLAY
+**********************************************************/
+
+#close_video_overlay{
+	position: absolute;
+	right: 5%;
+	top: 20px;
+	cursor: pointer;
+}
+
+#video_container{
+	margin-top: 60px;
+	height: 400px;
+	width: 600px;
+	background: red;
+	display: inline-block;
+}
+
+
+
 
 
 
@@ -315,6 +336,32 @@ PRODUCT SECTION
 
 .add_to_cart{
 	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************
+HOW IT WORKS
+**********************************************************/
+
+#how_it_works_vid_container{
+	max-width: 889px;
+	margin: auto;
+}
+
+#how_it_works_vid_container img {
+	width: 100%;
+	max-height: 500px;
 }
 
 
@@ -1198,7 +1245,7 @@ LANGUAGE OVERLAY
 
 	<div class="language_overlay_title">Choose a Language</div>
 
-	<div class="language_overlay_languages">
+	<div id="language_list" class="language_overlay_languages">
 		
 		<!-- big column 1 -->
 		<div class="language_overlay_big_col">
@@ -1267,6 +1314,31 @@ LANGUAGE OVERLAY
 
 
 <!-- *********************************************************
+VIDEO OVERLAY
+********************************************************** -->
+
+<div id="video_overlay">
+	<div id="close_video_overlay">X</div>
+	
+	<div id="video_container">video goes here</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *********************************************************
 HOW IT WORKS
 ********************************************************** -->
 
@@ -1277,8 +1349,8 @@ HOW IT WORKS
 		<h2>How does it work?</h2>
 		<h3>Find out everything you need to know about Rosetta Stone in 2 minutes.</h3>
 
-		<div style="max-width:889px; margin:auto;">
-			<img src="./assets/video_still.jpg" style="width:100%; max-height:500px;">
+		<div id="how_it_works_vid_container" data-video="how_it_works">
+			<img src="./assets/video_still.jpg">
 		</div>
 
 	</div>
@@ -1341,7 +1413,7 @@ REVIEWS
 					</div>
 
 
-					<div class="review_box special_review video_review">
+					<div class="review_box special_review video_review" data-video="delaine">
 						<img src="./assets/delaine_still.jpg" class="review_still">
 
 						<div class="review_foreground">
@@ -1493,7 +1565,7 @@ REVIEWS
 				<!-- review column 4 -->
 				<div class="review_column">
 
-					<div class="review_box special_review video_review">
+					<div class="review_box special_review video_review" data-video="grace">
 						<img src="./assets/grace_still.jpg" class="review_still">
 
 						<div class="review_foreground">
@@ -2142,7 +2214,7 @@ function ensure_correct_url(url){
 
 
 
-<!-- jquery is necessary for DTM and smooth scroll, so don't remove -->
+<!-- jquery is necessary for DTM, so don't remove -->
 <script src="./js/jquery.js"></script>
 <script>
 
@@ -2155,12 +2227,104 @@ function smoothScrollTo(scrolltargetid){
 }
 
 
+
+
+
+
+/**********************************************************
+LANGUAGE OVERLAY
+***********************************************************/
+
 document.getElementById('select_language').onclick = function(){
 	$('#language_overlay').fadeIn();
 };
 document.getElementById('close_language_overlay').onclick = function(){
 	$('#language_overlay').fadeOut();
 };
+
+
+// change language
+document.getElementById('language_list').onclick = function(e){
+	
+	var lang = e.target;
+	
+	// if user clicked one of the language links...
+	if(lang.tagName==='A'){
+
+		// handle lang code business logic
+		console.log('lang code: ' + lang.id);
+
+		// change selected language
+		document.getElementById('select_language').innerHTML = lang.innerHTML;
+
+		// hide language overlay
+		$('#language_overlay').fadeOut();
+	}
+	return false;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************
+VIDEO OVERLAY
+***********************************************************/
+
+// get elements that trigger video overlay when clicked
+var vids = document.querySelectorAll('#how_it_works_vid_container, .video_review');
+
+// show video overlay when element is clicked
+for(var i=0; i<vids.length; i++){
+	vids[i].onclick = function(){
+		showVideo(this);
+	}
+}
+
+
+// show correct video
+function showVideo(elem){
+	var vid = elem.getAttribute('data-video');
+
+	var youtube_id = {
+		how_it_works : 'how it works id',
+		delaine : 'delaine video id',
+		grace : 'grace video id'
+	};
+
+	document.getElementById('video_container').innerHTML = youtube_id[vid];
+
+	$('#video_overlay').fadeIn();
+}
+
+// hide video
+function hideVideo(){
+
+	// hide overlay
+	$('#video_overlay').fadeOut(function(){
+		// get rid of video altogether (otherwise youtube will keep playing it)
+		document.getElementById('video_container').innerHTML = '';
+	});
+}
+
+// click to close video overlay
+document.getElementById('video_overlay').onclick = function(e){
+	// if the user clicks the background or the close button, close the video
+	if( e.target.id.match(/(^(close_|)video_overlay$)/) ){
+		hideVideo();
+	}
+};
+
+
+
 
 
 </script>
