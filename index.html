@@ -161,6 +161,12 @@ LANGUAGE OVERLAY
 	overflow: scroll;
 }
 
+.overlay_x{
+	width: 30px;
+	height: 30px;
+	stroke: #fff;
+}
+
 #language_overlay div{
 	vertical-align: top;
 }
@@ -255,14 +261,33 @@ VIDEO OVERLAY
 	cursor: pointer;
 }
 
-#video_container{
-	margin-top: 60px;
-	height: 400px;
-	width: 600px;
-	background: red;
-	display: inline-block;
+#video_scaler{
+	width: 100%;
+	max-width: 900px;
+	margin: 60px auto 0px;
+	text-align: center;
 }
 
+#video_container{
+	background: #333;
+	display: inline-block;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+
+	width: 100%;
+	height: 0px;
+	overflow: hidden;
+	padding-top: 56.25%;
+	position: relative;
+}
+
+#video_container iframe{
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
 
 
 
@@ -357,6 +382,9 @@ HOW IT WORKS
 #how_it_works_vid_container{
 	max-width: 889px;
 	margin: auto;
+	position: relative;
+	cursor: pointer;
+	font-size: 0px;
 }
 
 #how_it_works_vid_container img {
@@ -365,8 +393,44 @@ HOW IT WORKS
 }
 
 
+.hiw_play_container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	z-index: 2;
+}
 
+.hiw_play_button{
+	width: 150px;
+	height: 100%;
+}
 
+.hiw_play_button circle{
+	stroke: #fff;
+}
+.hiw_play_button polygon{
+	fill: #fff;
+	stroke: #fff;
+}
+
+#how_it_works_vid_container *{
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+#how_it_works_vid_container:hover .hiw_play_button circle{
+	stroke: gold;
+}
+#how_it_works_vid_container:hover .hiw_play_button polygon{
+	fill: gold;
+	stroke: #fff;
+}
+
+.hiw_play_container:hover{
+	background-color: rgba(33,33,33,0.5);
+}
 
 
 
@@ -459,6 +523,10 @@ REVIEWS
 	stroke: #fff;
 }
 
+.video_review{
+	cursor: pointer;
+}
+
 .video_review *{
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
@@ -470,6 +538,11 @@ REVIEWS
 .video_review:hover .review_play_button polygon{
 	fill: gold;
 	stroke: #fff;
+}
+
+.video_review:hover .review_still{
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 
@@ -662,7 +735,8 @@ MASTHEAD STYLES
 
 #masthead{
 	background-color: #2480c9;
-	background-image: linear-gradient(30deg, #82CCEF, #005EB5);
+	/*background-image: linear-gradient(30deg, #82CCEF, #005EB5);*/
+	background-size: cover;
 	color: #fff;
 	position: relative;
 	text-align: center;
@@ -733,9 +807,11 @@ MASTHEAD STYLES
 }
 
 
-
-
-
+@media (min-width: 700px){
+	#masthead{
+		background-image: url('./assets/masthead_bg.jpg');
+	}
+}
 
 
 
@@ -1114,6 +1190,13 @@ SVG DEFINITIONS
 		<polygon points="4.2,3.5 6.8,5 4.2,6.5" style="stroke-width:0.5; stroke-linejoin:round;"></polygon>
 	</symbol>
 
+	<!-- basic x -->
+	<symbol id="basic_x_svg" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+		<style type="text/css"><![CDATA[ #basic_x_svg line{ stroke-width:0.8; stroke-linecap:round; } ]]></style>
+		<line x1="0.5" y1="0.5" x2="9.5" y2="9.5"></line>
+		<line x1="0.5" y1="9.5" x2="9.5" y2="0.5"></line>
+	</symbol>
+
 </svg>
 
 
@@ -1241,7 +1324,11 @@ LANGUAGE OVERLAY
 ********************************************************** -->
 
 <div id="language_overlay">
-	<div id="close_language_overlay">X</div>
+	<div id="close_language_overlay">
+		<svg class="overlay_x">
+			<use xlink:href="#basic_x_svg"></use>
+		</svg>
+	</div>
 
 	<div class="language_overlay_title">Choose a Language</div>
 
@@ -1318,9 +1405,15 @@ VIDEO OVERLAY
 ********************************************************** -->
 
 <div id="video_overlay">
-	<div id="close_video_overlay">X</div>
+	<div id="close_video_overlay">
+		<svg class="overlay_x">
+			<use xlink:href="#basic_x_svg"></use>
+		</svg>
+	</div>
 	
-	<div id="video_container">video goes here</div>
+	<div id="video_scaler">
+		<div id="video_container"></div>
+	</div>
 </div>
 
 
@@ -1351,6 +1444,12 @@ HOW IT WORKS
 
 		<div id="how_it_works_vid_container" data-video="how_it_works">
 			<img src="./assets/video_still.jpg">
+
+			<div class="hiw_play_container">
+				<svg class="hiw_play_button">
+					<use xlink:href="#play_button_svg"></use>
+				</svg>
+			</div>
 		</div>
 
 	</div>
@@ -2295,12 +2394,13 @@ function showVideo(elem){
 	var vid = elem.getAttribute('data-video');
 
 	var youtube_id = {
-		how_it_works : 'how it works id',
-		delaine : 'delaine video id',
-		grace : 'grace video id'
+		how_it_works : 'imK17Pb3Yws',
+		delaine : 'KwFphr58e94',
+		grace : 'g6WEYqaMFsk'
 	};
 
-	document.getElementById('video_container').innerHTML = youtube_id[vid];
+	var youtube_video = '<iframe src="http://www.youtube.com/embed/'+youtube_id[vid]+'?rel=0&autoplay=1&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>';
+	document.getElementById('video_container').innerHTML = youtube_video;
 
 	$('#video_overlay').fadeIn();
 }
@@ -2318,10 +2418,13 @@ function hideVideo(){
 // click to close video overlay
 document.getElementById('video_overlay').onclick = function(e){
 	// if the user clicks the background or the close button, close the video
-	if( e.target.id.match(/(^(close_|)video_overlay$)/) ){
+	if( e.target.id.match(/(^(close_|)video_overlay$)/) || e.target.tagName.match(/svg|use/i) ){
 		hideVideo();
 	}
 };
+
+
+
 
 
 
