@@ -139,6 +139,315 @@ b{
 
 
 
+/*********************************************************
+MASTHEAD STYLES
+**********************************************************/
+
+#masthead{
+	background-color: #2480c9;
+	/*background-image: linear-gradient(30deg, #82CCEF, #005EB5);*/
+	background-size: cover;
+	color: #fff;
+	position: relative;
+	text-align: center;
+}
+
+.masthead_content{
+	position: relative;
+	z-index: 5;
+}
+
+.masthead_bg{
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+.fast_fun{
+	padding: 60px 5px 20px;
+	font-size: 35px;
+	font-weight: 100;
+}
+
+.fast_fun > span{
+	font-family: gothambold, sans-serif;
+}
+
+#select_language{
+	cursor: pointer;
+	color: #fff;
+	background: #333;
+	background-image: linear-gradient(#444,#333);
+	box-shadow: 0px 2px 8px -1px rgba(33,33,33,0.7);
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 30px;
+	position: relative;
+	padding: 10px 20px;
+	padding-right: 80px;
+
+	font-weight: 700;
+}
+
+#select_language:hover{
+	background: #383838;
+	background-image: linear-gradient(#484848,#383838);
+}
+
+#select_language > span{
+	font-size: 70%;
+}
+
+#select_language:after{
+	content: '';
+	position: absolute;
+	right: 20px;
+	top: 26px;
+	z-index: 1;
+	width: 0px;
+	height: 0px;
+	border-top: 12px solid #e9c503;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
+
+
+@media (min-width: 700px){
+	#masthead{
+		background-image: url('./assets/masthead_bg.jpg');
+	}
+}
+
+
+
+
+
+
+
+
+
+/*********************************************************
+PRODUCT SECTION
+**********************************************************/
+
+
+.products_container{
+	padding: 0px;
+	color: #333;
+	margin: auto;
+}
+
+tr,td{
+	padding: 0px;
+	margin: 0px;
+	vertical-align: top;
+}
+
+.product_gap{
+	width: 20px;
+	display: block;
+}
+
+.product_class_header{
+	background: #333;
+	color: #e9c503;
+	text-transform: uppercase;
+
+	font-size: 25px;
+	padding: 5px 0px;
+}
+
+#masthead .product_class_header{
+	background: #5195da;
+	color: #fff;
+}
+
+.product_content{
+	display: block;
+
+	padding: 0px;
+	margin: 20px auto;
+
+	max-width: 95%;
+	vertical-align: top;
+
+	background: #fff;
+
+	position: relative;
+}
+
+.product_title{
+	font-size: 20px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.product_subtitle{
+	font-size: 14px;
+	color: #999;
+	height: 3em;
+}
+
+.product_info{
+	padding: 20px;
+}
+
+.add_to_cart_container{
+	text-align: center;
+}
+
+.product_table_header, .product_gap {
+	display: none;
+}
+
+
+@media (min-width: 750px){
+	.products_container{
+		padding: 70px 5px 80px;
+	}
+
+	.mobile_product_header{
+		display: none;
+	}
+
+	.product_content, .product_gap {
+		display: table-cell;
+	}
+
+	.product_table_header{
+		display: table-row;
+	}
+
+	.product_content{
+		/*padding-bottom: 100px;*/
+		padding-bottom: 305px;
+		margin: auto;
+		width: 340px;
+	}
+
+	.desktop_header{
+		display: none;
+	}
+
+	.add_to_cart_container{
+		position: absolute;
+		bottom: 20px;
+		left: 0px;
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************
+PURCHASE (PRICING, GIFTING, CART)
+**********************************************************/
+
+.price_container{
+	padding: 5px 0px 12px;
+}
+
+.strikeprice{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 28px;
+}
+
+.strikeprice:after{
+	content: '';
+	position: absolute;
+	width: 103%;
+	height: 2px;
+	background: #e12;
+	left: 0px;
+	top: 50%;
+}
+
+.price{
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	/*color: #0098db;*/
+	color: #333;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.gifting{
+	font-size: 16px;
+}
+.gifting *{
+	vertical-align: middle;
+}
+.gifting input{
+	width: 16px;
+	height: 16px;
+}
+.gifting img{
+	height: 16px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+.standard_button{
+	border: none;
+	background-color: #0098db;
+	color: #fff;
+	border-radius: 3px;
+	padding: 15px 35px;
+	font-family: gothambook, sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	display: inline-block;
+	cursor: pointer;
+
+	-webkit-transition: background-color 0.4s linear;
+	transition: background-color 0.4s linear;
+}
+
+.standard_button:hover{
+	background-color: #00b8fb;
+}
+
+
+.add_to_cart{
+	text-transform: uppercase;
+}
+
+.guarantee_container{
+	padding: 12px;
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -300,68 +609,42 @@ VIDEO OVERLAY
 
 
 
+
+
+
+
 /*********************************************************
-PRODUCT SECTION
+REASONS
 **********************************************************/
 
-.dollar_sign{
-	font-size: 0.55em;
-	vertical-align: top;
-	position: relative;
-	top: 3px;
-	font-family: gothambook;
+.reasons_title{
+	background: #333;
+	background-image: linear-gradient(#444,#333);
+	color: #e9c503;
+	padding: 20px 15px;
+	text-align: center;
+	font-size: 30px;
 }
 
-.product_strikeprice{
-	position: relative;
+.reasons{
+	font-size: 0px;
+	background: #F7F6F0;
+}
+
+.reasons > div{
+	text-align: center;
 	display: inline-block;
-	vertical-align: middle;
-	font-size: 28px;
-}
-
-.product_strikeprice:after{
-	content: '';
-	position: absolute;
-	width: 103%;
-	height: 2px;
-	background: #e12;
-	left: 0px;
-	top: 50%;
-}
-
-.product_mainprice{
-	margin-left: 15px;
-	display: inline-block;
-	vertical-align: middle;
-	color: #0098db;
-	font-size: 42px;
-	font-weight: 700;
-}
-
-.standard_button{
-	border: none;
-	background-color: #0098db;
-	color: #fff;
-	border-radius: 3px;
-	padding: 15px 35px;
-	font-family: gothambook, sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	display: inline-block;
-	cursor: pointer;
-
-	-webkit-transition: background-color 0.4s linear;
-	transition: background-color 0.4s linear;
-}
-
-.standard_button:hover{
-	background-color: #00b8fb;
+	width: 33.333333333333%;
+	/*height: 300px;*/
+	font-size: 24px;
+	box-sizing: border-box;
+	padding: 7%;
+	/*background: #ECEADE;*/
 }
 
 
-.add_to_cart{
-	text-transform: uppercase;
-}
+
+
 
 
 
@@ -605,6 +888,10 @@ BOTTOM PRICING SECTION
 	box-shadow: 0px 0px 50px 10px #E79802 inset;
 }
 
+.bottom_pricing_section .products_container{
+	padding-top: 10px;
+}
+
 
 
 
@@ -726,205 +1013,6 @@ Breakpoints
 
 
 
-
-
-
-/*********************************************************
-MASTHEAD STYLES
-**********************************************************/
-
-#masthead{
-	background-color: #2480c9;
-	/*background-image: linear-gradient(30deg, #82CCEF, #005EB5);*/
-	background-size: cover;
-	color: #fff;
-	position: relative;
-	text-align: center;
-}
-
-.masthead_content{
-	position: relative;
-	z-index: 5;
-}
-
-.masthead_bg{
-	z-index: 1;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
-
-
-
-
-.fast_fun{
-	padding: 60px 5px 20px;
-	font-size: 35px;
-	font-weight: 100;
-}
-
-.fast_fun > span{
-	font-family: gothambold, sans-serif;
-}
-
-#select_language{
-	cursor: pointer;
-	color: #fff;
-	background: #333;
-	background-image: linear-gradient(#444,#333);
-	box-shadow: 0px 2px 8px -1px rgba(33,33,33,0.7);
-	border-radius: 5px;
-	display: inline-block;
-	font-size: 30px;
-	position: relative;
-	padding: 10px 20px;
-	padding-right: 80px;
-
-	font-weight: 700;
-}
-
-#select_language:hover{
-	background: #383838;
-	background-image: linear-gradient(#484848,#383838);
-}
-
-#select_language > span{
-	font-size: 70%;
-}
-
-#select_language:after{
-	content: '';
-	position: absolute;
-	right: 20px;
-	top: 26px;
-	z-index: 1;
-	width: 0px;
-	height: 0px;
-	border-top: 12px solid #e9c503;
-	border-right: 10px solid transparent;
-	border-left: 10px solid transparent;
-}
-
-
-@media (min-width: 700px){
-	#masthead{
-		background-image: url('./assets/masthead_bg.jpg');
-	}
-}
-
-
-
-
-
-
-
-
-
-/*********************************************************
-PRODUCT STYLES
-**********************************************************/
-
-
-.products_container{
-	padding: 0px;
-	color: #333;
-	margin: auto;
-}
-
-tr,td{
-	padding: 0px;
-	margin: 0px;
-	vertical-align: top;
-}
-
-.product_gap{
-	width: 20px;
-	display: block;
-}
-
-.product_class_header{
-	background: #333;
-	color: #e9c503;
-	text-transform: uppercase;
-
-	font-size: 25px;
-	padding: 5px 0px;
-}
-
-.product_content{
-	display: block;
-
-	padding: 0px;
-	margin: 20px auto;
-
-	max-width: 95%;
-	vertical-align: top;
-
-	background: #fff;
-
-	position: relative;
-}
-
-.product_title{
-	font-size: 20px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-}
-
-.product_subtitle{
-	font-size: 14px;
-	color: #999;
-	height: 3em;
-}
-
-.product_info{
-	padding: 20px;
-}
-
-.add_to_cart_container{
-	text-align: center;
-}
-
-.product_table_header, .product_gap {
-	display: none;
-}
-
-
-@media (min-width: 750px){
-	.products_container{
-		padding: 70px 5px 80px;
-	}
-
-	.mobile_product_header{
-		display: none;
-	}
-
-	.product_content, .product_gap {
-		display: table-cell;
-	}
-
-	.product_table_header{
-		display: table-row;
-	}
-
-	.product_content{
-		padding-bottom: 100px;
-		margin: auto;
-		width: 340px;
-	}
-
-	.desktop_header{
-		display: none;
-	}
-
-	.add_to_cart_container{
-		position: absolute;
-		bottom: 20px;
-		left: 0px;
-		width: 100%;
-	}
-}
 
 
 
@@ -1216,7 +1304,7 @@ PRODUCT MASTHEAD
 
 	<div class="masthead_content">
 		<div class="fast_fun">The <span>fast</span>, <span>fun</span> &amp; <span>effective</span> way to speak:</div>
-		<div id="select_language">Spanish <span>(Latin America)</span></div>
+		<div id="select_language" data-lang="esp">Spanish <span>(Latin America)</span></div>
 
 		
 		<table class="products_container" cellspacing="0" cellpadding="0">
@@ -1230,6 +1318,8 @@ PRODUCT MASTHEAD
 				</td>
 			</tr>
 			<tr>
+				
+				<!-- subscription -->
 
 				<td class="product_content">
 					<div class="product_class_header mobile_product_header">
@@ -1247,11 +1337,29 @@ PRODUCT MASTHEAD
 							<li><span>Learn anywhere on any device including use of our award-winning mobile app</span></li>
 							<li><span>Speech Recognition</span></li>
 						</ul>
-						<div class="add_to_cart_container">
+
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="subscription">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
 						</div>
 					</div>
 				</td>
+
+
+				<!-- download -->
 
 				<td class="product_gap"></td>
 				
@@ -1271,11 +1379,30 @@ PRODUCT MASTHEAD
 							<li><span>Try our award winning mobile app for 3 months</span></li>
 							<li><span>Try our native-speaking tutors for 3 months</span></li>
 						</ul>
-						<div class="add_to_cart_container">
+						
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="download">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
 						</div>
 					</div>
 				</td>
+
+
+
+				<!-- cd-rom -->
 
 				<td class="product_content">
 					<div class="product_class_header mobile_product_header">
@@ -1294,8 +1421,23 @@ PRODUCT MASTHEAD
 							<li><span>Try our award winning mobile app for 3 months</span></li>
 							<li><span>Try our native-speaking tutors for 3 months</span></li>
 						</ul>
-						<div class="add_to_cart_container">
+						
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="box">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
 						</div>
 					</div>
 				</td>
@@ -1416,6 +1558,28 @@ VIDEO OVERLAY
 	</div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<!-- *********************************************************
+REASONS
+********************************************************** -->
+
+<div class="reasons_title">
+	Three reasons to start today:
+</div>
+<div class="reasons">
+	<div>Text goes here. More text blah blah etc.</div>
+	<div>Text goes here. More text blah blah etc.</div>
+	<div>Text goes here. More text blah blah etc.</div>
+</div>
 
 
 
@@ -1760,7 +1924,125 @@ BOTTOM PRICING TABLE
 		<h2>Start Learning With Rosetta Stone</h2>
 		<h3>Get speaking with the most powerful and intuitive language program on the planet.</h3>
 
-		Pricing table goes here
+		
+
+		<table class="products_container" cellspacing="0" cellpadding="0">
+			<tr class="product_table_header">
+				<td class="product_class_header">
+					Online
+				</td>
+				<td class="product_gap"></td>
+				<td class="product_class_header" colspan="2">
+					Desktop
+				</td>
+			</tr>
+			<tr>
+				
+				<!-- subscription -->
+
+				<td class="product_content">
+					<div class="product_class_header mobile_product_header">
+						Online
+					</div>
+					<div class="product_info">
+						<div class="product_title">Subscription with app</div>
+						<img src="./assets/tosub.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Get total access on your phone, tablet, and desktop computer for 24 months.
+						</div>
+
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="subscription">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
+							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
+						</div>
+					</div>
+				</td>
+
+
+				<!-- download -->
+
+				<td class="product_gap"></td>
+				
+				<td class="product_content">
+					<div class="product_class_header mobile_product_header">
+						Desktop
+					</div>
+					<div class="product_info">
+						<div class="product_title">Download</div>
+						<img src="./assets/download.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Start learning immediately with our desktop application</div>
+						
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="download">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
+							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
+						</div>
+					</div>
+				</td>
+
+
+
+				<!-- cd-rom -->
+
+				<td class="product_content">
+					<div class="product_class_header mobile_product_header">
+						Desktop
+					</div>
+					<div class="product_info">
+						<div class="product_title">CD-ROM</div>
+						<img src="./assets/cd.svg" alt="" style="height:40px;">
+						<div class="product_subtitle">
+							Learn on your computer
+						</div>
+						
+						<!-- purchase section -->
+						<div class="add_to_cart_container" data-product="box">
+							<label class="gifting">
+								<input type="checkbox" autocomplete="off">
+								<img src="http://m.rosettastone.com/assets/gift.svg">
+								<span>Give as a gift</span>
+							</label>
+							<div class="price_container">
+								<div class="strikeprice">$499</div>
+								<div class="price">$209</div>
+							</div>
+							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+							<div class="guarantee_container">
+								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<div>30 Day, Money-Back Guarantee</div>
+							</div>
+						</div>
+					</div>
+				</td>
+				
+			</tr>
+		</table>
 
 	</div>
 </div>
@@ -1954,7 +2236,7 @@ function getParameter(param){
 /************************************************************
 PRODUCT URL PARAMETERS
 *************************************************************/
-
+/*
 // handle download plus 24-month
 if(!parameterExists('product') || parameterMatches('product','download')){
 
@@ -1999,7 +2281,7 @@ if(parameterMatches('product','l1')){
 	// this will allow special promo codes
 	current.special_experience='special_l1';
 }
-
+*/
 
 
 
@@ -2016,7 +2298,7 @@ if(parameterMatches('product','l1')){
 /************************************************************
 LANGUAGES
 *************************************************************/
-
+/*
 function update_languages(lang_code){
 	current.lang = lang_code;
 
@@ -2102,46 +2384,18 @@ if(parameterExists('lang')){
 document.getElementById('select_language').onchange = function(){
 	update_languages(this.value);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************************************************************
-DELIVERY OPTIONS (DOWNLOAD OR CD)
-*************************************************************/
-
-function handle_delivery_options(box_or_download){
-	var other = box_or_download=='box' ? 'download':'box';
-
-	// show correct image
-	document.getElementById(box_or_download+'_image').style.display = 'inline-block';
-	document.getElementById(other+'_image').style.display = 'none';
-
-	// update cart url
-	current.media = box_or_download;
-	update_cart_button();
-}
-
-/*
-document.getElementById('box_radio').onclick = function(){
-	handle_delivery_options('box');
-};
-
-document.getElementById('download_radio').onclick = function(){
-	handle_delivery_options('download');
-};
 */
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2157,8 +2411,8 @@ document.getElementById('download_radio').onclick = function(){
 /************************************************************
 PRICES
 *************************************************************/
-
-function update_prices(num){
+/*
+function update_prices(){
 
 	// first set special prices if necessary
 	if(current.special_experience=='special_l1'){
@@ -2188,7 +2442,7 @@ function update_prices(num){
 
 update_prices();
 
-
+*/
 
 
 
@@ -2274,7 +2528,7 @@ function update_cart_button(){
 	}
 }
 
-
+/*
 function ensure_correct_url(url){
 	
 	// if download plus 24, change skus from default
@@ -2299,7 +2553,7 @@ function ensure_correct_url(url){
 		return url;
 	}
 }
-
+*/
 
 
 
@@ -2346,21 +2600,95 @@ document.getElementById('close_language_overlay').onclick = function(){
 document.getElementById('language_list').onclick = function(e){
 	
 	var lang = e.target;
+
+	// make sure to get the whole language (not just the subtitle)
+	if(lang.tagName==='SPAN'){
+		lang = lang.parentElement;
+	}
 	
 	// if user clicked one of the language links...
 	if(lang.tagName==='A'){
 
 		// handle lang code business logic
-		console.log('lang code: ' + lang.id);
+		var lang_code = lang.id;
+		console.log('lang code: ' + lang_code);
 
 		// change selected language
-		document.getElementById('select_language').innerHTML = lang.innerHTML;
+		var selectlang = document.getElementById('select_language');
+		selectlang.innerHTML = lang.innerHTML;
+		selectlang.setAttribute('data-lang',lang_code);
+
+		
+		// update price data (for display and cart buttons)
+		update_price_data();
+
 
 		// hide language overlay
 		$('#language_overlay').fadeOut();
 	}
 	return false;
 };
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************
+PRICING AND CART
+***********************************************************/
+
+function update_price_data(){
+
+	// get elements
+	var price_sections = document.querySelectorAll('.add_to_cart_container');
+	var lang = document.getElementById('select_language').getAttribute('data-lang');
+
+	for(var i=0; i<price_sections.length; i++){
+		var p = price_sections[i];
+		var media = p.getAttribute('data-product');
+		var cart_button = p.querySelector('.add_to_cart');
+
+		var gifting_checkbox = p.querySelector('input');
+		var gifting = gifting_checkbox.checked ? '&gifting=1' : '';
+
+		var carturl = '#lang='+lang+'&media='+media+gifting;
+
+
+		// gifting checkbox
+		(function(current_button){
+			gifting_checkbox.onchange = function(){
+				if(this.checked){
+					current_button.href = current_button.href + '&gifting=1';
+				}
+				else{
+					current_button.href = current_button.href.replace('&gifting=1','');
+				}
+			};
+		})(cart_button);
+
+
+		// cart button
+		cart_button.href = carturl;
+	}
+	
+	// get price data
+	// place price data
+}
+
+update_price_data();
+
+
+
+
+
+
+
 
 
 
