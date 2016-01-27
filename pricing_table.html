@@ -21,14 +21,56 @@ body{
 
 
 
+/*********************************************************
+PRODUCT SECTION
+**********************************************************/
+
+
 .products_container{
-	padding: 70px 5px 80px;
+	padding: 0px;
 	color: #333;
 	margin: auto;
 	text-align: center;
 }
 
-.products_container > tr{}
+.products_container ul{
+	color: #333;
+	padding: 20px;
+	margin: 0px;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
+	list-style-type: none;
+}
+
+.products_container li{
+	margin-bottom: 15px;
+	text-align: left;
+	position: relative;
+	padding-left: 20px;
+	font-family: gothambold;
+}
+
+.products_container li span{
+	color: #333;
+}
+
+.products_container ul li:before{
+	content: '';
+	display: block;
+	width: 20px;
+	height: 10px;
+	border: 2px solid #0098db;
+	border-top: none;
+	border-right: none;
+	position: absolute;
+	top: 2px;
+	left: -10px;
+
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
 
 tr,td{
 	padding: 0px;
@@ -36,13 +78,9 @@ tr,td{
 	vertical-align: top;
 }
 
-.product_class{
-	background: #fff;
-	/*display: block;*/
-}
-
 .product_gap{
 	width: 20px;
+	display: block;
 }
 
 .product_class_header{
@@ -54,13 +92,23 @@ tr,td{
 	padding: 5px 0px;
 }
 
+#masthead .product_class_header{
+	background: #5195da;
+	color: #fff;
+}
+
 .product_content{
-	display: inline-block;
-	/*width: 45%;*/
-	width: 300px;
-	padding: 20px;
-	max-width: 90%;
+	display: block;
+
+	padding: 0px;
+	margin: 20px auto;
+
+	max-width: 95%;
 	vertical-align: top;
+
+	background: #fff;
+
+	position: relative;
 }
 
 .product_title{
@@ -70,13 +118,123 @@ tr,td{
 }
 
 .product_subtitle{
-	font-size: 16px;
-	color: #888;
+	font-size: 14px;
+	color: #999;
+	height: 3em;
+}
+
+.product_info{
+	padding: 20px;
+}
+
+.add_to_cart_container{
+	text-align: center;
+}
+
+.product_table_header, .product_gap {
+	display: none;
+}
+
+
+@media (min-width: 750px){
+	.products_container{
+		padding: 70px 5px 80px;
+	}
+
+	.mobile_product_header{
+		display: none;
+	}
+
+	.product_content, .product_gap {
+		display: table-cell;
+	}
+
+	.product_table_header{
+		display: table-row;
+	}
+
+	.product_content{
+		/*padding-bottom: 100px;*/
+		padding-bottom: 305px;
+		margin: auto;
+		width: 340px;
+	}
+
+	.desktop_header{
+		display: none;
+	}
+
+	.add_to_cart_container{
+		position: absolute;
+		bottom: 20px;
+		left: 0px;
+		width: 100%;
+	}
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*********************************************************
+PURCHASE (PRICING, GIFTING, CART)
+**********************************************************/
+
+.price_container{
+	padding: 5px 0px 12px;
+}
+
+.strikeprice{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 28px;
+}
+
+.strikeprice:after{
+	content: '';
+	position: absolute;
+	width: 103%;
+	height: 2px;
+	background: #e12;
+	left: 0px;
+	top: 50%;
+}
+
+.price{
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: middle;
+	/*color: #0098db;*/
+	color: #333;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.gifting{
+	font-size: 16px;
+}
+.gifting *{
+	vertical-align: middle;
+}
+.gifting input{
+	width: 16px;
+	height: 16px;
+}
+.gifting img{
+	height: 16px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
 
 .standard_button{
 	border: none;
@@ -104,28 +262,38 @@ tr,td{
 	text-transform: uppercase;
 }
 
-
-
-
-/****************************************
-Breakpoints
-****************************************/
-
-
-/*first breakpoint*/
-@media (min-width:800px) {
+.guarantee_container{
+	padding: 12px;
+	font-size: 15px;
 }
+
+
+
 
 </style>
 
 </head>
 <body>
 
-<table class="products_container">
+<table class="products_container" cellspacing="0" cellpadding="0">
+	<tr class="product_table_header">
+		<td class="product_class_header">
+			Online
+		</td>
+		<td class="product_gap"></td>
+		<td class="product_class_header" colspan="2">
+			Desktop
+		</td>
+	</tr>
 	<tr>
-		<td class="product_class">
-			<div class="product_class_header">Online</div>
-			<div class="product_content">
+		
+		<!-- subscription -->
+
+		<td class="product_content">
+			<div class="product_class_header mobile_product_header">
+				Online
+			</div>
+			<div class="product_info">
 				<div class="product_title">Subscription with app</div>
 				<img src="./assets/tosub.svg" alt="" style="height:40px;">
 				<div class="product_subtitle">
@@ -137,13 +305,37 @@ Breakpoints
 					<li><span>Learn anywhere on any device including use of our award-winning mobile app</span></li>
 					<li><span>Speech Recognition</span></li>
 				</ul>
-				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+
+				<!-- purchase section -->
+				<div class="add_to_cart_container" data-product="subscription">
+					<label class="gifting">
+						<input type="checkbox" autocomplete="off">
+						<img src="http://m.rosettastone.com/assets/gift.svg">
+						<span>Give as a gift</span>
+					</label>
+					<div class="price_container">
+						<div class="strikeprice">$499</div>
+						<div class="price">$209</div>
+					</div>
+					<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					<div class="guarantee_container">
+						<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+						<div>30 Day, Money-Back Guarantee</div>
+					</div>
+				</div>
 			</div>
 		</td>
+
+
+		<!-- download -->
+
 		<td class="product_gap"></td>
-		<td class="product_class">
-			<div class="product_class_header">Desktop</div>
-			<div class="product_content">
+		
+		<td class="product_content">
+			<div class="product_class_header mobile_product_header">
+				Desktop
+			</div>
+			<div class="product_info">
 				<div class="product_title">Download</div>
 				<img src="./assets/download.svg" alt="" style="height:40px;">
 				<div class="product_subtitle">
@@ -155,9 +347,36 @@ Breakpoints
 					<li><span>Try our award winning mobile app for 3 months</span></li>
 					<li><span>Try our native-speaking tutors for 3 months</span></li>
 				</ul>
-				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+				
+				<!-- purchase section -->
+				<div class="add_to_cart_container" data-product="download">
+					<label class="gifting">
+						<input type="checkbox" autocomplete="off">
+						<img src="http://m.rosettastone.com/assets/gift.svg">
+						<span>Give as a gift</span>
+					</label>
+					<div class="price_container">
+						<div class="strikeprice">$499</div>
+						<div class="price">$209</div>
+					</div>
+					<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					<div class="guarantee_container">
+						<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+						<div>30 Day, Money-Back Guarantee</div>
+					</div>
+				</div>
 			</div>
-			<div class="product_content">
+		</td>
+
+
+
+		<!-- cd-rom -->
+
+		<td class="product_content">
+			<div class="product_class_header mobile_product_header">
+				Desktop
+			</div>
+			<div class="product_info">
 				<div class="product_title">CD-ROM</div>
 				<img src="./assets/cd.svg" alt="" style="height:40px;">
 				<div class="product_subtitle">
@@ -170,9 +389,27 @@ Breakpoints
 					<li><span>Try our award winning mobile app for 3 months</span></li>
 					<li><span>Try our native-speaking tutors for 3 months</span></li>
 				</ul>
-				<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+				
+				<!-- purchase section -->
+				<div class="add_to_cart_container" data-product="box">
+					<label class="gifting">
+						<input type="checkbox" autocomplete="off">
+						<img src="http://m.rosettastone.com/assets/gift.svg">
+						<span>Give as a gift</span>
+					</label>
+					<div class="price_container">
+						<div class="strikeprice">$499</div>
+						<div class="price">$209</div>
+					</div>
+					<a href="#" class="standard_button add_to_cart">Add to Cart</a>
+					<div class="guarantee_container">
+						<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+						<div>30 Day, Money-Back Guarantee</div>
+					</div>
+				</div>
 			</div>
 		</td>
+		
 	</tr>
 </table>
 

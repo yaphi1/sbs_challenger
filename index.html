@@ -67,23 +67,6 @@ a svg, a img, a{
 	text-decoration: none;
 }
 
-ul{
-	color: #0098DB;
-	padding: 20px;
-	margin: 0px;
-	font-size: 15px;
-	display: inline-block;
-	vertical-align: top;
-}
-
-li{
-	margin-bottom: 10px;
-	text-align: left;
-}
-
-li span{
-	color: #333;
-}
 
 b{
 	font-family: gothambold;
@@ -240,6 +223,46 @@ PRODUCT SECTION
 	padding: 0px;
 	color: #333;
 	margin: auto;
+	text-align: center;
+}
+
+.products_container ul{
+	color: #333;
+	padding: 20px;
+	margin: 0px;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
+	list-style-type: none;
+}
+
+.products_container li{
+	margin-bottom: 15px;
+	text-align: left;
+	position: relative;
+	padding-left: 20px;
+	font-family: gothambold;
+}
+
+.products_container li span{
+	color: #333;
+}
+
+.products_container ul li:before{
+	content: '';
+	display: block;
+	width: 20px;
+	height: 10px;
+	border: 2px solid #0098db;
+	border-top: none;
+	border-right: none;
+	position: absolute;
+	top: 2px;
+	left: -10px;
+
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
 }
 
 tr,td{
@@ -417,6 +440,7 @@ PURCHASE (PRICING, GIFTING, CART)
 	font-weight: 700;
 	display: inline-block;
 	cursor: pointer;
+	text-decoration: none;
 
 	-webkit-transition: background-color 0.4s linear;
 	transition: background-color 0.4s linear;
@@ -629,21 +653,59 @@ REASONS
 .reasons{
 	font-size: 0px;
 	background: #F7F6F0;
+	position: relative;
 }
+
 
 .reasons > div{
 	text-align: center;
-	display: inline-block;
-	width: 33.333333333333%;
-	/*height: 300px;*/
-	font-size: 24px;
+	min-height: 200px;
+	font-size: 20px;
+
 	box-sizing: border-box;
-	padding: 7%;
-	/*background: #ECEADE;*/
+	padding: 4%;
+	vertical-align: top;
+
+	position: relative;
+	z-index: 2;
+
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.reasons > div:nth-of-type(1) {
+	background-image: url('./assets/globe.png');
+}
+
+.reasons > div:nth-of-type(2) {
+	background-color: #ECEADE;
+	background-image: url('./assets/pie.png');
+}
+
+.reasons > div:nth-of-type(3) {
+	background-image: url('./assets/head.png');
 }
 
 
 
+@media (min-width: 700px){
+	.reasons:before{
+		content: '';
+		position: absolute;
+		display: block;
+		top: 0px;
+		left: 33.333333333333%;
+		width: 33.333333333333%;
+		height: 100%;
+		background-color: #ECEADE;
+		z-index: 1;
+	}
+
+	.reasons > div{
+		display: inline-block;
+		width: 33.333333333333%;
+	}
+}
 
 
 
@@ -760,12 +822,19 @@ REVIEWS
 	color: #fff;
 }
 
+.media_logo{
+	padding-top: 7px;
+}
+
 .review_pc_mag{
-	background: #b00;
+	background: #E20309;
 }
 .review_cnn{
 	background: #fff;
 	color: #333;
+}
+.review_wsj{
+	background: #000;
 }
 
 
@@ -1576,9 +1645,15 @@ REASONS
 	Three reasons to start today:
 </div>
 <div class="reasons">
-	<div>Text goes here. More text blah blah etc.</div>
-	<div>Text goes here. More text blah blah etc.</div>
-	<div>Text goes here. More text blah blah etc.</div>
+	<div>
+		Rosetta Stone solutions have brought language-learning success to millions all over the world. Proven to work. Prove it to yourself.
+	</div>
+	<div>
+		It's fun, effective and enjoyable. Don't be one of the 20% of Americans who list "not learning a language" as one of their life's biggest regrets.
+	</div>
+	<div>
+		From lesson one, the language you're learning is the only one you'll hear and the only one you'll use. With 250 hours of instructional content, you will [insert copy here]
+	</div>
 </div>
 
 
@@ -1694,7 +1769,7 @@ REVIEWS
 
 
 					<div class="review_box special_review review_pc_mag">
-						<div class="review_title">
+						<div class="review_title media_logo">
 							<img src="./assets/pcmag.png">
 						</div>
 						<p>
@@ -1797,7 +1872,7 @@ REVIEWS
 
 
 					<div class="review_box special_review review_cnn">
-						<div class="review_title">
+						<div class="review_title media_logo">
 							<img src="./assets/cnn.png">
 						</div>
 						<p>
@@ -1859,8 +1934,8 @@ REVIEWS
 					</div>
 
 
-					<div class="review_box special_review">
-						<div class="review_title">
+					<div class="review_box special_review review_wsj">
+						<div class="review_title media_logo">
 							<img src="./assets/wsj.png">
 						</div>
 
