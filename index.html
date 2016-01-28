@@ -1416,7 +1416,7 @@ PRODUCT MASTHEAD
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -1458,7 +1458,7 @@ PRODUCT MASTHEAD
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -1500,7 +1500,7 @@ PRODUCT MASTHEAD
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -1550,7 +1550,7 @@ LANGUAGE OVERLAY
 			<div class="language_overlay_col">
 				<a href="/learn-arabic/" id="ara">Arabic</a>
 				<a href="/learn-chinese/" id="chi">Chinese <span>(Mandarin)</span></a>
-				<!-- smaller market --><a href="/learn-dari/" id="dar">Dari</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-dari/" id="dar">Dari</a>
 				<a href="/learn-dutch/" id="ned">Dutch</a>
 				<a href="/learn-english/" id="eng">English <span>(American)</span></a>
 				<a href="/learn-english-british/" id="ebr">English <span>(British)</span></a>
@@ -1563,7 +1563,7 @@ LANGUAGE OVERLAY
 				<a href="/learn-greek/" id="grk">Greek</a>
 				<a href="/learn-hebrew/" id="heb">Hebrew</a>
 				<a href="/learn-hindi/" id="hin">Hindi</a>
-				<!-- smaller market --><a href="/learn-indonesian/" id="ind">Indonesian</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-indonesian/" id="ind">Indonesian</a>
 				<a href="/learn-irish/" id="gle">Irish</a>
 				<a href="/learn-italian/" id="ita">Italian</a>
 				<a href="/learn-japanese/" id="jpn">Japanese</a>
@@ -1575,8 +1575,8 @@ LANGUAGE OVERLAY
 		<div class="language_overlay_big_col">
 			<div class="language_overlay_col">
 				<a href="/learn-korean/" id="kor">Korean</a>
-				<!-- smaller market --><a href="/learn-latin/" id="lat">Latin</a>
-				<!-- smaller market --><a href="/learn-pashto/" id="pas">Pashto</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-latin/" id="lat">Latin</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-pashto/" id="pas">Pashto</a>
 				<a href="/learn-farsi/" id="far">Persian <span>(Farsi)</span></a>
 				<a href="/learn-polish/" id="pol">Polish</a>
 				<a href="/learn-portuguese/" id="por">Portuguese <span>(Brazil)</span></a>
@@ -1586,10 +1586,10 @@ LANGUAGE OVERLAY
 
 			<div class="language_overlay_col">
 				<a href="/learn-spanish-spain/" id="esc">Spanish <span>(Spain)</span></a>
-				<!-- smaller market --><a href="/learn-swahili/" id="kis">Swahili</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-swahili/" id="kis">Swahili</a>
 				<a href="/learn-swedish/" id="sve">Swedish</a>
 				<a href="/learn-turkish/" id="tur">Turkish</a>
-				<!-- smaller market --><a href="/learn-urdu/" id="urd">Urdu</a>
+				<!-- smaller market --><a class="smaller_market" href="/learn-urdu/" id="urd">Urdu</a>
 				<a href="/learn-vietnamese/" id="vie">Vietnamese</a>
 			</div>
 		</div>
@@ -2035,7 +2035,7 @@ BOTTOM PRICING TABLE
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -2070,7 +2070,7 @@ BOTTOM PRICING TABLE
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -2105,7 +2105,7 @@ BOTTOM PRICING TABLE
 							</label>
 							<div class="price_container">
 								<div class="strikeprice">$499</div>
-								<div class="price">$209</div>
+								<div class="price">$299</div>
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
@@ -2275,7 +2275,7 @@ function parameterExists(param){
 
 function getParameter(param){
 	var reg = new RegExp('[?&]'+param+'=([^&]+)','i');
-	return parameterExists(param) ? window.location.search.match(reg)[1] : '';
+	return parameterExists(param) ? window.location.search.match(reg).pop() : '';
 }
 
 
@@ -2287,6 +2287,31 @@ function getParameter(param){
 
 
 
+
+
+/************************************************************
+CHANGE DEFAULT LANGUAGE IF URL HAS SOMETHING LIKE:
+	lang=deu or language=fra
+*************************************************************/
+
+(function(){
+	if(parameterExists('(language|lang)')){
+		var lang = getParameter('(language|lang)');
+		var lang_link = document.getElementById(lang);
+
+		// if small-market language, go to catalog page
+		if(lang_link.className.match(/smaller_market/i)){
+			window.location.href = lang_link.href;
+		}
+
+		// otherwise show it on this page
+		else{
+			var select_lang = document.getElementById('select_language');
+			select_lang.innerHTML = lang_link.innerHTML;
+			select_lang.setAttribute('data-lang',lang)
+		}
+	}
+})();
 
 
 
@@ -2483,43 +2508,6 @@ document.getElementById('select_language').onchange = function(){
 
 
 
-/************************************************************
-PRICES
-*************************************************************/
-/*
-function update_prices(){
-
-	// first set special prices if necessary
-	if(current.special_experience=='special_l1'){
-		num = 99;
-	}
-
-	// get price data
-	var data = RSI({lvl:current.lvl, media:current.media})[0];
-	var price = num || data.price;
-	var msrp = data.msrp;
-	var five_pay = Math.ceil(price/5);
-	var upsell = RSI({lvl:'S5'})[0].price - RSI({lvl:'S3'})[0].price;
-
-	// get all msrp and price elements that need to change
-	var msrp_text = document.querySelectorAll('.main_msrp');
-	var price_text = document.querySelectorAll('.main_price');
-
-	// update prices and msrp
-	for(var i=0; i<msrp_text.length; i++){
-		msrp_text[i].innerHTML = msrp;
-		price_text[i].innerHTML = price;
-	}
-
-	// make cart match new prices
-	update_cart_button();
-}
-
-update_prices();
-
-*/
-
-
 
 
 
@@ -2545,93 +2533,6 @@ update_prices();
 COPYRIGHT - make sure year is always correct
 ********************************************************/
 document.getElementById('copyyear').innerHTML = new Date().getFullYear();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**********************************************************
-CART URL GENERATOR
-***********************************************************/
-
-function update_cart_button(){
-	var cart_button = document.getElementById(current.cart_button_id);
-
-	// first make sure a language has been selected
-	if(current.lang){
-		var url = RSI({cat:current.lang, lvl:current.lvl, media:current.media})[0].cart;
-
-		// ensure correct skus (even if there's a special experience, like download + 24 month)
-		cart_button.href = ensure_correct_url(url);
-
-		// remove smoothscroll from cart button
-		cart_button.onclick = undefined;
-
-		// make sure cart button is no longer gray
-		document.getElementById(current.cart_button_id).className = 'standard_button add_to_cart';
-
-		// remove glow from language dropdown
-		document.getElementById('select_language_dropdown_bg').className = 'dropdown_container';
-	}
-}
-
-/*
-function ensure_correct_url(url){
-	
-	// if download plus 24, change skus from default
-	if(current.special_experience=='download_plus_24'){
-		var download_plus_24_skus = {
-			'fra': '99334',
-			'deu': '99340',
-			'ita': '99337',
-			'esp': '99331',
-			'esc': '99343'
-		};
-		return url.replace(/sku\/[\d]+\//i, 'sku/'+download_plus_24_skus[current.lang]+'/') + 'DOWN';
-	}
-	
-	// if L1, change promo code from default
-	else if(current.special_experience=='special_l1'){
-		var promocode = 'special_L1';
-		return url.replace(/pc=[^&]+/i, 'pc='+promocode);
-	}
-
-	else{
-		return url;
-	}
-}
-*/
-
-
-
 
 
 
@@ -2681,12 +2582,11 @@ document.getElementById('language_list').onclick = function(e){
 		lang = lang.parentElement;
 	}
 	
-	// if user clicked one of the language links...
-	if(lang.tagName==='A'){
+	// if user clicked one of the language links... (but not one of the smaller-market languages)
+	if(lang.tagName==='A' && !lang.className.match(/smaller_market/i)){
 
 		// handle lang code business logic
 		var lang_code = lang.id;
-		console.log('lang code: ' + lang_code);
 
 		// change selected language
 		var selectlang = document.getElementById('select_language');
@@ -2700,8 +2600,11 @@ document.getElementById('language_list').onclick = function(e){
 
 		// hide language overlay
 		$('#language_overlay').fadeOut();
+
+		return false;
 	}
-	return false;
+
+	// if it's a small-market language do nothing, and let the link go to the catalog
 };
 
 
@@ -2724,36 +2627,73 @@ function update_price_data(){
 	var price_sections = document.querySelectorAll('.add_to_cart_container');
 	var lang = document.getElementById('select_language').getAttribute('data-lang');
 
+	// go through each price section and update all data
 	for(var i=0; i<price_sections.length; i++){
-		var p = price_sections[i];
-		var media = p.getAttribute('data-product');
-		var cart_button = p.querySelector('.add_to_cart');
-
-		var gifting_checkbox = p.querySelector('input');
-		var gifting = gifting_checkbox.checked ? '&gifting=1' : '';
-
-		var carturl = '#lang='+lang+'&media='+media+gifting;
-
-
-		// gifting checkbox
-		(function(current_button){
-			gifting_checkbox.onchange = function(){
-				if(this.checked){
-					current_button.href = current_button.href + '&gifting=1';
-				}
-				else{
-					current_button.href = current_button.href.replace('&gifting=1','');
-				}
-			};
-		})(cart_button);
-
-
-		// cart button
-		cart_button.href = carturl;
+		update_price_section(i);
 	}
 	
-	// get price data
-	// place price data
+	// update all rsi data in an individual price section
+	function update_price_section(section){
+		var p = price_sections[section];
+		
+		var strikeprice = p.querySelector('.strikeprice');
+		var price = p.querySelector('.price');
+
+		var cart_button = p.querySelector('.add_to_cart');
+
+
+		// get media
+		var media = p.getAttribute('data-product');
+
+
+		// get level
+		if(media=='subscription'){
+			var lvl = '24';
+		}
+		else{
+			var lvl = RSI({cat:lang, media:media, lvl:'S5'})[0] ? 'S5':'S3';
+		}
+
+		// get RSI data based on language, media, and level
+		var rsi_data = RSI({cat:lang, media:media, lvl:lvl})[0];
+
+		
+		// set prices
+		strikeprice.innerHTML = '$'+rsi_data.msrp;
+		price.innerHTML = '$'+rsi_data.price;
+
+		
+		// console.log('lang='+lang+', media='+media+', lvl='+lvl);
+		
+
+		// get cart url
+		var carturl = rsi_data.cart;
+
+		// attach parameters with & or ? depending on whether ? is alredy there
+		var q = carturl.match(/\?/) ? '&':'?';
+
+		
+		// get gifting checkbox and set gifting value
+		var gifting_checkbox = p.querySelector('input');
+		if(gifting_checkbox.checked){
+			carturl += q+'gifting=1';
+		}
+
+		
+		// set cart button url
+		cart_button.href = carturl;
+
+
+		// handling gifting checkbox changes
+		gifting_checkbox.onchange = function(){
+			if(this.checked){
+				cart_button.href = cart_button.href + q + 'gifting=1';
+			}
+			else{
+				cart_button.href = cart_button.href.replace(/[?&]gifting=1/i,'');
+			}
+		};
+	}
 }
 
 update_price_data();
