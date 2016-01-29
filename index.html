@@ -169,7 +169,7 @@ MASTHEAD STYLES
 	box-shadow: 0px 2px 8px -1px rgba(33,33,33,0.7);
 	border-radius: 5px;
 	display: inline-block;
-	font-size: 30px;
+	font-size: 20px;
 	position: relative;
 	padding: 10px 20px;
 	padding-right: 80px;
@@ -190,13 +190,24 @@ MASTHEAD STYLES
 	content: '';
 	position: absolute;
 	right: 20px;
-	top: 26px;
+	top: 19px;
 	z-index: 1;
 	width: 0px;
 	height: 0px;
 	border-top: 12px solid #e9c503;
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
+}
+
+
+@media (min-width:450px) {
+	#select_language{
+		font-size: 30px;
+	}
+	#select_language:after{
+		right: 20px;
+		top: 26px;
+	}
 }
 
 
