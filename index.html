@@ -127,10 +127,10 @@ MASTHEAD STYLES
 **********************************************************/
 
 #masthead{
-	background-color: #2480c9;
+	background-color: #ecc200;
 	/*background-image: linear-gradient(30deg, #82CCEF, #005EB5);*/
 	background-size: cover;
-	color: #fff;
+	color: #333;
 	position: relative;
 	text-align: center;
 }
@@ -213,6 +213,7 @@ MASTHEAD STYLES
 
 @media (min-width: 700px){
 	#masthead{
+		color: #fff;
 		background-image: url('./assets/masthead_bg.jpg');
 	}
 }
@@ -401,7 +402,7 @@ PURCHASE (PRICING, GIFTING, CART)
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 28px;
+	font-size: 22px;
 }
 
 .strikeprice:after{
@@ -420,7 +421,7 @@ PURCHASE (PRICING, GIFTING, CART)
 	vertical-align: middle;
 	/*color: #0098db;*/
 	color: #333;
-	font-size: 50px;
+	font-size: 38px;
 	font-weight: 700;
 }
 
@@ -447,7 +448,7 @@ PURCHASE (PRICING, GIFTING, CART)
 	border-radius: 3px;
 	padding: 15px 35px;
 	font-family: gothambook, sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 700;
 	display: inline-block;
 	cursor: pointer;
@@ -469,6 +470,7 @@ PURCHASE (PRICING, GIFTING, CART)
 .guarantee_container{
 	padding: 12px;
 	font-size: 15px;
+	padding-top: 35px;
 }
 
 
@@ -761,6 +763,7 @@ HOW IT WORKS
 .hiw_play_button{
 	width: 150px;
 	height: 100%;
+	opacity: 0.8;
 }
 
 .hiw_play_button circle{
@@ -775,17 +778,21 @@ HOW IT WORKS
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 }
-
+/*
 #how_it_works_vid_container:hover .hiw_play_button circle{
 	stroke: gold;
 }
 #how_it_works_vid_container:hover .hiw_play_button polygon{
 	fill: gold;
-	stroke: #fff;
+	stroke: gold;
 }
-
+*/
 .hiw_play_container:hover{
 	background-color: rgba(33,33,33,0.5);
+}
+
+#how_it_works_vid_container:hover .hiw_play_button{
+	opacity: 1;
 }
 
 
@@ -876,6 +883,7 @@ REVIEWS
 	width: 60px;
 	height: 60px;
 	margin: 60px 0px;
+	opacity: 0.8;
 }
 
 .review_play_button circle{
@@ -895,12 +903,16 @@ REVIEWS
 	transition: all 0.5s;
 }
 
-.video_review:hover .review_play_button circle{
+/*.video_review:hover .review_play_button circle{
 	stroke: gold;
 }
 .video_review:hover .review_play_button polygon{
 	fill: gold;
 	stroke: #fff;
+}*/
+
+.video_review:hover .review_play_button{
+	opacity: 1;
 }
 
 .video_review:hover .review_still{
@@ -972,6 +984,9 @@ BOTTOM PRICING SECTION
 	padding-top: 10px;
 }
 
+.bottom_pricing_section .guarantee_container{
+	padding-top: 25px;
+}
 
 
 
@@ -1376,6 +1391,20 @@ SVG DEFINITIONS
 
 
 
+
+<!-- *********************************************************
+VIOLATOR
+********************************************************** -->
+<div id="violator">Ends Soon!</div>
+
+
+
+
+
+
+
+
+
 <!-- *********************************************************
 PRODUCT MASTHEAD
 ********************************************************** -->
@@ -1431,7 +1460,7 @@ PRODUCT MASTHEAD
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -1473,7 +1502,7 @@ PRODUCT MASTHEAD
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -1515,7 +1544,7 @@ PRODUCT MASTHEAD
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -2050,7 +2079,7 @@ BOTTOM PRICING TABLE
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -2085,7 +2114,7 @@ BOTTOM PRICING TABLE
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -2120,7 +2149,7 @@ BOTTOM PRICING TABLE
 							</div>
 							<a href="#" class="standard_button add_to_cart">Add to Cart</a>
 							<div class="guarantee_container">
-								<img src="http://www.rosettastone.com/lp/globals/mobileimages/mobile-lang/satisfaction_badge.png">
+								<img src="./assets/guarantee.png">
 								<div>30 Day, Money-Back Guarantee</div>
 							</div>
 						</div>
@@ -2323,214 +2352,6 @@ CHANGE DEFAULT LANGUAGE IF URL HAS SOMETHING LIKE:
 		}
 	}
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************************************************************
-PRODUCT URL PARAMETERS
-*************************************************************/
-/*
-// handle download plus 24-month
-if(!parameterExists('product') || parameterMatches('product','download')){
-
-	// remove non-figss languages due to sku availability
-	var non_figss = document.getElementById('select_language').querySelectorAll('.non-figss');
-	for(var i=0; i<non_figss.length; i++){
-		non_figss[i].parentElement.removeChild(non_figss[i]);
-	}
-
-	// this will allow special skus and promo codes
-	current.special_experience = 'download_plus_24';
-}
-
-
-
-// handle S3 product
-if(parameterMatches('product','s3')){
-
-	// set product data
-	current.lvl = 'S3';
-	current.cart_button_id = 'add_to_cart_s3_upsell';
-
-	// show correct product module
-	document.getElementById('download_plus_24_module').style.display = 'none';
-	document.getElementById('s3_upsell_module').style.display = 'block';
-}
-
-
-
-
-// handle L1 product
-if(parameterMatches('product','l1')){
-	
-	// set product data
-	current.lvl = 'L1';
-	current.cart_button_id = 'add_to_cart_l1';
-
-	// show correct product module
-	document.getElementById('download_plus_24_module').style.display = 'none';
-	document.getElementById('l1_module').style.display = 'block';
-
-	// this will allow special promo codes
-	current.special_experience='special_l1';
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-/************************************************************
-LANGUAGES
-*************************************************************/
-/*
-function update_languages(lang_code){
-	current.lang = lang_code;
-
-
-	// if S5 is available, show upsell (otherwise, hide it)
-	var upsell = document.getElementById('upsell');
-	if(RSI({cat:current.lang, lvl:'S5', media:current.media})[0]){
-		upsell.style.display = 'block';
-
-		// if the user had S5 checked before switching languages and they switch back, keep them on S5
-		if(document.getElementById('upsell_yes').checked){
-			show_s5();
-		}
-	}
-	else{
-		upsell.style.display = 'none';
-		show_s3();
-	}
-
-	update_cart_button();
-
-
-	var lang_map = {
-		"esp": 'Spanish',
-		"eng": 'English',
-		"fra": 'French',
-		"deu": 'German',
-		"ita": 'Italian',
-		"ara": 'Arabic',
-		"chi": 'Chinese',
-		"ned": 'Dutch',
-		"ebr": 'English',
-		"tgl": 'Filipino',
-		"grk": 'Greek',
-		"heb": 'Hebrew',
-		"hin": 'Hindi',
-		"gle": 'Irish',
-		"jpn": 'Japanese',
-		"kor": 'Korean',
-		"far": 'Persian',
-		"pol": 'Polish',
-		"por": 'Portuguese',
-		"rus": 'Russian',
-		"esc": 'Spanish',
-		"sve": 'Swedish',
-		"tur": 'Turkish',
-		"vie": 'Vietnamese'
-	}
-	var places_to_update = document.querySelectorAll('.language_name');
-	var lang = lang_map[lang_code];
-
-	for(var i=0; i<places_to_update.length; i++){
-		places_to_update[i].innerHTML = lang;
-	}
-}
-
-
-// if language parameter, change selected language
-if(parameterExists('lang')){
-
-	var dropdown = document.getElementById('select_language');
-
-	// get lang from url parameter
-	var lang_code = getParameter('lang');
-
-	// try to set dropdown equal to language in url
-	dropdown.value = lang_code;
-
-	// if the language exists in the dropdown for the current experience
-	if(dropdown.value){
-
-		update_languages(lang_code);
-
-		// remove "select language" placeholder
-		document.getElementById('select_language').removeChild(document.getElementById('select_language_placeholder'));
-	}
-}
-
-
-
-
-// select language dropdown
-document.getElementById('select_language').onchange = function(){
-	update_languages(this.value);
-};
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2785,6 +2606,63 @@ document.getElementById('video_overlay').onclick = function(e){
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+<!--**********************************************************
+CRESCENDO STUFF (violators, clocks, etc)
+***********************************************************-->
+
+<!-- clock script -->
+<script>
+function getTimeRemaining(endtime){
+	var t = new Date(endtime) - Date.parse(new Date());
+	var seconds = Math.floor( (t/1000) % 60 );
+	var minutes = Math.floor( (t/1000/60) % 60 );
+	var hours = Math.floor( t/(1000*60*60) );
+	return { 'total': t, 'hours': hours, 'minutes': minutes, 'seconds': seconds };
+}
+
+function startClock(endtime){
+	var clock = document.getElementById('clock-wrap');
+	clock.style.display = 'block';
+
+	var values = ['hours','minutes','seconds'];
+	var spans = [];
+
+	for(var i=0; i<values.length; i++){
+		spans.push( clock.querySelector('.'+values[i]) );
+	}
+
+	function updateClock(){
+		var t = getTimeRemaining(endtime);
+
+		for(var i=0; i<spans.length; i++){
+			spans[i].innerHTML = ('0' + t[values[i]]).slice(-2);
+		}
+
+		if(t.total<=0){
+			clock.style.display = 'none';
+			clearInterval(timeinterval);
+		}
+	}
+	updateClock();
+	var timeinterval = setInterval(updateClock,1000);
+}
+
+// startClock(Date.parse(new Date())+(1000*60*60*3));
+
+</script>
+
+<!-- crescendo script -->
+<script src="http://www.rosettastone.com/lp/globals/scripts/crescendo.js"></script>
 
 
 
