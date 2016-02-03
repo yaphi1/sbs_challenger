@@ -4,6 +4,7 @@
 <title>Rosetta Stone&reg; - Learn a New Language</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="Shortcut Icon" href="/us-consumer-theme/images/favicon.ico">
 
 <style type="text/css">
 
@@ -2569,11 +2570,13 @@ function hideVideo(){
 
 // click to close video overlay
 document.getElementById('video_overlay').onclick = function(e){
-	// if the user clicks the background or the close button, close the video
-	if( e.target.id.match(/(^(close_|)video_overlay$)/) || e.target.tagName.match(/svg|use/i) ){
+	// if the user clicks the background, close the video
+	if( e.target.id.match(/(^(close_|)video_overlay$)/) ){
 		hideVideo();
 	}
 };
+// if user clicks x, close video (the reason this wasn't added to the event delegation was to make the functionality bulletproof across browsers; yes there was an IE bug)
+document.getElementById('close_video_overlay').onclick = hideVideo;
 
 
 
